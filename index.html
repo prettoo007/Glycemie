@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
 <style>
@@ -482,47 +482,26 @@ td.comment{font-size:12px;color:var(--ink-soft);max-width:120px;overflow:hidden;
   }
   function renderMealBars(){
     var slot=qs('#meal-bars-slot');if(!slot||entries.length===0)return;
-    var avgs={};
-    for(var i=0;i<fields.length;i++){var k=fields[i];avgs[k]=calcAvg(entries.map(function(e){return e[k];}));}
-    // Scale: 0 to max threshold + 20%
-    var scaleMax=Math.max(thresholds.elevatedHi+20,200);
-    var html='<div style="position:relative;padding:0 8px;">';
-    // Background threshold zones
-    var zLow=Math.round((thresholds.low/scaleMax)*100);
-    var zNorm=Math.round((thresholds.normalHi/scaleMax)*100);
-    var zElev=Math.round((thresholds.elevatedHi/scaleMax)*100);
-    html+='<div style="position:relative;height:180px;display:flex;align-items:flex-end;gap:12px;justify-content:center;padding-bottom:30px;">';
-    // Zone backgrounds behind bars
-    html+='<div style="position:absolute;bottom:30px;left:0;right:0;height:'+zElev+'%;display:flex;flex-direction:column;">';
-    html+='<div style="flex:'+((100-zElev))+'%;"></div>';
-    html+='<div style="flex:'+((zElev-zNorm))+'%;background:rgba(201,138,44,.06);border-top:1px dashed rgba(201,138,44,.3);"></div>';
-    html+='<div style="flex:'+((zNorm-zLow))+'%;background:rgba(44,140,107,.06);border-top:1px dashed rgba(44,140,107,.3);"></div>';
-    html+='<div style="flex:'+(zLow)+'%;background:rgba(63,110,147,.06);border-top:1px dashed rgba(63,110,147,.3);"></div>';
-    html+='</div>';
-    // Scale labels on left
-    html+='<div style="position:absolute;bottom:30px;left:-2px;height:'+zElev+'%;display:flex;flex-direction:column;font-size:9px;color:var(--ink-soft);font-family:IBM Plex Mono,monospace;">';
-    html+='<div style="flex:'+((100-zElev))+'%;"></div>';
-    html+='<div style="flex:'+((zElev-zNorm))+'%;"><span style="position:relative;top:-6px;">'+thresholds.elevatedHi+'</span></div>';
-    html+='<div style="flex:'+((zNorm-zLow))+'%;"><span style="position:relative;top:-6px;">'+thresholds.normalHi+'</span></div>';
-    html+='<div style="flex:'+(zLow)+'%;"><span style="position:relative;top:-6px;">'+thresholds.low+'</span></div>';
-    html+='</div>';
-    // Bars
+    var avgs={};var vals=[];
+    for(var i=0;i<fields.length;i++){var k=fields[i];var a=calcAvg(entries.map(function(e){return e[k];}));avgs[k]=a;if(a)vals.push(a);}
+    if(vals.length===0)return;
+    var vMin=Math.min.apply(null,vals);var vMax=Math.max.apply(null,vals);
+    var scaleBottom=Math.max(0,Math.floor(vMin/10)*10-10);
+    var scaleTop=Math.ceil(vMax/10)*10+10;
+    var range=scaleTop-scaleBottom;
+    var html='<div style="display:flex;align-items:flex-end;gap:14px;height:160px;justify-content:center;padding:8px 0 0;">';
     for(var i=0;i<fields.length;i++){
       var k=fields[i];var a=avgs[k]||0;
-      var pct=Math.round((a/scaleMax)*100);
-      var col=thresholdColor(a);var bg=thresholdBg(a);var lbl=thresholdLabel(a);
-      html+='<div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;max-width:72px;z-index:2;">';
-      html+='<div style="font-family:IBM Plex Mono,monospace;font-size:15px;font-weight:700;color:'+col+';">'+a+'</div>';
-      html+='<div style="font-size:9px;font-weight:600;color:'+col+';text-transform:uppercase;letter-spacing:.04em;">'+lbl+'</div>';
-      html+='<div style="width:100%;height:'+pct+'%;background:linear-gradient(to top,'+col+','+col+'cc);border-radius:6px 6px 0 0;min-height:4px;"></div>';
-      html+='<div style="font-size:11px;color:var(--ink-soft);text-align:center;position:absolute;bottom:6px;">'+labelsShort[k]+'</div>';
+      var pct=range?Math.round(((a-scaleBottom)/range)*100):50;
+      if(pct<8)pct=8;
+      var col=thresholdColor(a);var lbl=thresholdLabel(a);
+      html+='<div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;max-width:72px;">';
+      html+='<div style="font-family:IBM Plex Mono,monospace;font-size:16px;font-weight:700;color:'+col+';">'+a+'</div>';
+      html+='<div style="font-size:9px;font-weight:600;color:'+col+';text-transform:uppercase;letter-spacing:.03em;">'+lbl+'</div>';
+      html+='<div style="width:100%;height:'+pct+'%;background:linear-gradient(to top,'+col+'dd,'+col+'88);border-radius:6px 6px 0 0;min-height:6px;"></div>';
+      html+='<div style="font-size:10.5px;color:var(--ink-soft);text-align:center;margin-top:4px;line-height:1.2;">'+labelsShort[k]+'</div>';
       html+='</div>';
     }
-    html+='</div>';
-    // Labels row below
-    html+='<div style="display:flex;gap:12px;justify-content:center;padding:0 8px;">';
-    for(var i=0;i<fields.length;i++){html+='<div style="flex:1;max-width:72px;text-align:center;font-size:11px;color:var(--ink-soft);">'+labelsShort[fields[i]]+'</div>';}
-    html+='</div>';
     html+='</div>';
     slot.innerHTML=html;
   }
