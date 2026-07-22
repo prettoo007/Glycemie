@@ -445,7 +445,7 @@ td.comment{font-size:12px;color:var(--ink-soft);max-width:120px;overflow:hidden;
     slot.innerHTML=html;
   }
   function renderMainChart(){
-    var ctx=qs('#chart-main');if(!ctx)return;
+    var ctx=qs('#chart-main');if(!ctx||typeof Chart==='undefined')return;
     var sorted=entries.slice().sort(function(a,b){return a.date<b.date?-1:1;});
     var labelsX=sorted.map(function(e){return fmtDate(e.date);});
     var datasets=fields.map(function(k){return{label:labels[k],data:sorted.map(function(e){return e[k];}),borderColor:mealColors[k],backgroundColor:mealColors[k],tension:.3,spanGaps:true,pointRadius:1.5,borderWidth:1.5};});
@@ -466,7 +466,7 @@ td.comment{font-size:12px;color:var(--ink-soft);max-width:120px;overflow:hidden;
     html+='</div>';slot.innerHTML=html;
   }
   function renderTrendChart(){
-    var ctx=qs('#chart-trend');if(!ctx||entries.length<5)return;
+    var ctx=qs('#chart-trend');if(!ctx||entries.length<5||typeof Chart==='undefined')return;
     var last8=entries.slice(-8);var labelsX=last8.map(function(e){return fmtDate(e.date);});
     var allVals=last8.map(function(e){var vs=[];fields.forEach(function(k){if(e[k]!=null)vs.push(e[k]);});return vs.length?Math.round(vs.reduce(function(a,b){return a+b;},0)/vs.length):null;});
     if(chartTrend)chartTrend.destroy();
@@ -579,7 +579,11 @@ td.comment{font-size:12px;color:var(--ink-soft);max-width:120px;overflow:hidden;
   });
 
   loadSettings();clearForm();loadLocal();
-  if(ghToken){renderSyncStatus('Chargement...');ghPull(function(){renderAll();});}
-  else{renderAll();}
+  function startApp(){
+    if(ghToken){renderSyncStatus('Chargement...');ghPull(function(){renderAll();});}
+    else{renderAll();}
+  }
+  if(typeof Chart!=='undefined'){startApp();}
+  else{window.addEventListener('load',startApp);}
 })();
 </script>
