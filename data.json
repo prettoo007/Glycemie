@@ -1255,8 +1255,9 @@
     "date": "2026-07-22",
     "dejJ": 91,
     "dinJ": 132,
-    "souJ": null,
+    "souJ": 89,
     "couJ": null,
-    "dej1": null
+    "dej1": null,
+    "comment": ""
   }
 ]
