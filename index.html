@@ -30,76 +30,38 @@ body{margin:0;}
   padding:0 0 60px;min-height:100%;
 }
 .wrap{max-width:900px;margin:0 auto;padding:0 18px;}
-
-/* ── NAV ── */
-.top-bar{
-  background:var(--primary-dark);padding:14px 18px 0;position:sticky;top:0;z-index:50;
-}
+.top-bar{background:var(--primary-dark);padding:14px 18px 0;position:sticky;top:0;z-index:50;}
 .top-bar .brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.top-bar .brand h1{
-  font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:#fff;margin:0;
-}
-.top-bar .brand .eyebrow{
-  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--accent);font-weight:600;
-}
+.top-bar .brand h1{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:#fff;margin:0;}
+.top-bar .brand .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;}
 .tabs{display:flex;gap:0;}
-.tab{
-  font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;
-  padding:10px 20px;border:none;cursor:pointer;
-  background:transparent;color:rgba(255,255,255,.6);
-  border-bottom:3px solid transparent;transition:all .15s;
-}
+.tab{font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;padding:10px 20px;border:none;cursor:pointer;background:transparent;color:rgba(255,255,255,.6);border-bottom:3px solid transparent;transition:all .15s;}
 .tab:hover{color:#fff;}
 .tab.active{color:#fff;border-bottom-color:var(--accent);background:rgba(255,255,255,.07);}
-
 .page{display:none;padding-top:24px;}
 .page.active{display:block;}
-
-/* ── DASHBOARD ── */
-.kpi-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px;
-}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px;}
 @media(min-width:640px){.kpi-grid{grid-template-columns:repeat(4,1fr);}}
-.kpi{
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-  padding:16px;text-align:center;
-}
-.kpi .kpi-val{
-  font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;
-  color:var(--primary-dark);line-height:1.1;
-}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;}
+.kpi .kpi-val{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:var(--primary-dark);line-height:1.1;}
 .kpi .kpi-label{font-size:12.5px;color:var(--ink-soft);margin-top:4px;}
 .kpi .kpi-sub{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
 .kpi .trend-up{color:var(--high);}
 .kpi .trend-down{color:var(--normal);}
 .kpi .trend-stable{color:var(--ink-soft);}
-
 .dash-row{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:20px;}
 @media(min-width:640px){.dash-row{grid-template-columns:1fr 1fr;}}
-
-.card{
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-  padding:20px;margin-bottom:20px;
-}
-.card h2{
-  font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin:0 0 4px;color:var(--primary-dark);
-}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px;}
+.card h2{font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin:0 0 4px;color:var(--primary-dark);}
 .card .hint{font-size:13px;color:var(--ink-soft);margin:0 0 14px;}
 .chart-wrap{position:relative;height:280px;}
 .chart-wrap-sm{position:relative;height:220px;}
-
-/* bar chart for averages by meal */
 .meal-bars{display:flex;align-items:flex-end;gap:16px;height:140px;padding:10px 0;justify-content:center;}
 .meal-bar-item{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;max-width:80px;}
 .meal-bar{border-radius:6px 6px 0 0;width:100%;min-height:4px;transition:height .4s ease;}
 .meal-bar-val{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;}
 .meal-bar-name{font-size:11px;color:var(--ink-soft);text-align:center;}
-
-.strip-card{
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-  padding:18px 20px;margin-bottom:20px;
-}
+.strip-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:20px;}
 .strip-title{font-family:'Fraunces',serif;font-size:15px;font-weight:600;margin:0 0 12px;color:var(--primary-dark);}
 .droplets{display:flex;gap:18px;flex-wrap:wrap;}
 .droplet-item{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:56px;}
@@ -108,44 +70,27 @@ body{margin:0;}
 .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:var(--ink-soft);}
 .legend span{display:inline-flex;align-items:center;gap:4px;}
 .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
-
-.banner{
-  display:flex;align-items:center;gap:10px;
-  background:var(--primary-light);border:1px solid var(--primary);color:var(--primary-dark);
-  padding:11px 14px;border-radius:10px;font-size:13.5px;margin-bottom:18px;
-}
+.banner{display:flex;align-items:center;gap:10px;background:var(--primary-light);border:1px solid var(--primary);color:var(--primary-dark);padding:11px 14px;border-radius:10px;font-size:13.5px;margin-bottom:18px;}
 .banner.ok{background:#FFF7EC;border-color:var(--accent-dark);color:#7A5217;}
-
-/* ── SAISIE ── */
 .field-date{margin-bottom:16px;}
 label{font-size:13.5px;font-weight:600;color:var(--ink-soft);display:block;margin-bottom:5px;}
-input[type=date],input[type=number]{
-  font-family:'IBM Plex Mono',monospace;font-size:14px;
-  padding:9px 10px;border:1px solid var(--border);border-radius:8px;
-  width:100%;background:#fff;color:var(--ink);
-}
-input:focus{outline:2px solid var(--primary);outline-offset:1px;}
+input[type=date],input[type=number],textarea{font-family:'IBM Plex Mono',monospace;font-size:14px;padding:9px 10px;border:1px solid var(--border);border-radius:8px;width:100%;background:#fff;color:var(--ink);}
+textarea{font-family:'Inter',sans-serif;font-size:13px;min-height:50px;resize:vertical;}
+input:focus,textarea:focus{outline:2px solid var(--primary);outline-offset:1px;}
 .groups{display:grid;grid-template-columns:1fr;gap:16px;}
 @media(min-width:640px){.groups{grid-template-columns:1.6fr 1fr;}}
 .group-box{border:1px dashed var(--border);border-radius:10px;padding:14px;}
 .group-box .g-title{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--primary);margin-bottom:10px;}
 .grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 @media(min-width:420px){.grid-4{grid-template-columns:repeat(4,1fr);}}
-.btn{
-  font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;
-  border:none;border-radius:8px;padding:10px 18px;cursor:pointer;transition:opacity .15s;
-}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;border:none;border-radius:8px;padding:10px 18px;cursor:pointer;transition:opacity .15s;}
 .btn:hover{opacity:.9;}
 .btn-primary{background:var(--primary);color:#fff;}
 .btn-ghost{background:transparent;color:var(--primary);border:1px solid var(--primary);}
 .btn-accent{background:var(--accent);color:#fff;}
+.btn-sm{padding:7px 12px;font-size:12px;}
 .row-actions{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
-
-/* ── RAPPORT ── */
-.filter-bar{
-  display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:16px;
-  padding:14px;background:var(--primary-light);border-radius:10px;
-}
+.filter-bar{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:16px;padding:14px;background:var(--primary-light);border-radius:10px;}
 .filter-bar .field{display:flex;flex-direction:column;gap:4px;}
 .filter-bar label{font-size:12px;margin:0;}
 .filter-bar input[type=date]{width:150px;padding:7px 8px;font-size:13px;}
@@ -158,18 +103,24 @@ td.num{font-family:'IBM Plex Mono',monospace;}
 td.actions{white-space:nowrap;}
 td.actions button{background:none;border:none;cursor:pointer;font-size:12.5px;color:var(--primary);font-weight:600;margin-right:10px;}
 td.actions button.del{color:var(--high);}
+td.comment{font-size:12px;color:var(--ink-soft);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .empty{color:var(--ink-soft);font-size:14px;padding:10px 0;}
 .export-row{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
 .table-scroll{overflow-x:auto;}
-.report-stats{
-  display:flex;gap:20px;flex-wrap:wrap;margin-bottom:14px;font-size:13px;color:var(--ink-soft);
-}
+.report-stats{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:14px;font-size:13px;color:var(--ink-soft);}
 .report-stats b{color:var(--ink);}
-
-/* ── PRINT ── */
+.settings-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media(min-width:500px){.settings-grid{grid-template-columns:repeat(5,1fr);}}
+.settings-grid label{font-size:12px;}
+.settings-grid input{width:100%;padding:7px 8px;font-size:13px;}
+.sync-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:10px;font-size:13px;}
+.sync-bar .status{display:inline-flex;align-items:center;gap:5px;}
+.sync-bar .status .dot-pulse{width:8px;height:8px;border-radius:50%;background:var(--normal);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.token-field{display:flex;gap:8px;align-items:center;flex:1;min-width:200px;}
+.token-field input{flex:1;font-size:12px;padding:7px 8px;}
 @media print{
-  .top-bar,.tab,.filter-bar .btn,.export-row,.row-actions,
-  td.actions,.page:not(.print-target){display:none!important;}
+  .top-bar,.filter-bar .btn,.export-row,.row-actions,td.actions,.page:not(.print-target),.sync-bar{display:none!important;}
   .page.print-target{display:block!important;}
   .card{border:none;box-shadow:none;padding:8px 0;}
   body,#glyc-root{background:#fff;padding:0;}
@@ -184,58 +135,36 @@ td.actions button.del{color:var(--high);}
       <svg width="28" height="34" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M13 1C13 1 24 15.5 24 21.5C24 27.8513 19.0751 31 13 31C6.92487 31 2 27.8513 2 21.5C2 15.5 13 1 13 1Z" fill="#E0A458" fill-opacity="0.9"/>
       </svg>
-      <div>
-        <div class="eyebrow">Suivi hebdomadaire</div>
-        <h1>Glycémie</h1>
-      </div>
+      <div><div class="eyebrow">Suivi hebdomadaire</div><h1>Glycémie</h1></div>
     </div>
     <div class="tabs">
       <button class="tab active" data-page="dashboard">Dashboard</button>
       <button class="tab" data-page="saisie">Saisie</button>
       <button class="tab" data-page="rapport">Rapport</button>
+      <button class="tab" data-page="settings">Réglages</button>
     </div>
   </div>
-
   <div class="wrap">
-    <!-- ═══ DASHBOARD ═══ -->
+    <!-- DASHBOARD -->
     <div id="page-dashboard" class="page active">
+      <div id="sync-status-slot"></div>
       <div id="banner-slot"></div>
       <div class="kpi-grid" id="kpi-grid"></div>
-      <div class="strip-card">
-        <div class="strip-title">Dernier relevé</div>
-        <div id="droplets-slot"></div>
-      </div>
-      <div class="card">
-        <h2>Évolution</h2>
-        <p class="hint">Toutes les mesures, semaine après semaine (mg/dl).</p>
-        <div class="chart-wrap"><canvas id="chart-main"></canvas></div>
-      </div>
+      <div class="strip-card"><div class="strip-title">Dernier relevé</div><div id="droplets-slot"></div></div>
+      <div class="card"><h2>Évolution</h2><p class="hint">Toutes les mesures + moyenne mobile 4 sem. (mg/dl).</p><div class="chart-wrap"><canvas id="chart-main"></canvas></div></div>
       <div class="dash-row">
-        <div class="card">
-          <h2>Moyennes par repas</h2>
-          <p class="hint">Moyenne globale sur toutes les semaines.</p>
-          <div id="meal-bars-slot"></div>
-        </div>
-        <div class="card">
-          <h2>Tendance (4 dernières sem.)</h2>
-          <p class="hint">Comparaison avec les 4 semaines précédentes.</p>
-          <div class="chart-wrap-sm"><canvas id="chart-trend"></canvas></div>
-        </div>
+        <div class="card"><h2>Moyennes par repas</h2><p class="hint">Moyenne globale sur toutes les semaines.</p><div id="meal-bars-slot"></div></div>
+        <div class="card"><h2>Tendance (8 dern. sem.)</h2><p class="hint">Moyenne par relevé — couleur selon le niveau.</p><div class="chart-wrap-sm"><canvas id="chart-trend"></canvas></div></div>
       </div>
     </div>
-
-    <!-- ═══ SAISIE ═══ -->
+    <!-- SAISIE -->
     <div id="page-saisie" class="page">
       <div class="card">
         <h2 id="form-title">Nouveau relevé</h2>
         <p class="hint">Toutes les valeurs en mg/dl, nombres entiers.</p>
-        <div class="field-date">
-          <label for="f-date">Date (jour J)</label>
-          <input type="date" id="f-date">
-        </div>
+        <div class="field-date"><label for="f-date">Date (jour J)</label><input type="date" id="f-date"></div>
         <div class="groups">
-          <div class="group-box">
-            <div class="g-title">Jour J</div>
+          <div class="group-box"><div class="g-title">Jour J</div>
             <div class="grid-4">
               <div><label for="f-dej">Déjeuner</label><input type="number" id="f-dej" placeholder="mg/dl"></div>
               <div><label for="f-din">Dîner</label><input type="number" id="f-din" placeholder="mg/dl"></div>
@@ -243,11 +172,9 @@ td.actions button.del{color:var(--high);}
               <div><label for="f-cou">Coucher</label><input type="number" id="f-cou" placeholder="mg/dl"></div>
             </div>
           </div>
-          <div class="group-box">
-            <div class="g-title">Jour J+1</div>
-            <div><label for="f-dej1">Déjeuner</label><input type="number" id="f-dej1" placeholder="mg/dl"></div>
-          </div>
+          <div class="group-box"><div class="g-title">Jour J+1</div><div><label for="f-dej1">Déjeuner</label><input type="number" id="f-dej1" placeholder="mg/dl"></div></div>
         </div>
+        <div style="margin-top:14px;"><label for="f-comment">Commentaire (optionnel)</label><textarea id="f-comment" placeholder="Ex: repas festif, stress, activité sportive..."></textarea></div>
         <div id="form-error" style="display:none;color:var(--high);font-size:13px;margin-bottom:10px;"></div>
         <div class="row-actions">
           <button class="btn btn-primary" id="btn-save">Enregistrer le relevé</button>
@@ -255,51 +182,65 @@ td.actions button.del{color:var(--high);}
         </div>
       </div>
     </div>
-
-    <!-- ═══ RAPPORT ═══ -->
+    <!-- RAPPORT -->
     <div id="page-rapport" class="page">
-      <div class="print-header">
-        <h2 style="font-family:'Fraunces',serif;color:var(--primary-dark);">Suivi Glycémie — Rapport</h2>
-        <p id="print-range" style="font-size:13px;color:var(--ink-soft);"></p>
-      </div>
+      <div class="print-header"><h2 style="font-family:'Fraunces',serif;color:var(--primary-dark);">Suivi Glycémie — Rapport</h2><p id="print-range" style="font-size:13px;color:var(--ink-soft);"></p></div>
       <div class="card">
         <h2>Rapport détaillé</h2>
-        <p class="hint">Cliquez sur un en-tête de colonne pour trier. Filtrez par date pour l'impression.</p>
+        <p class="hint">Cliquez sur un en-tête pour trier. Filtrez par date pour l'impression.</p>
         <div class="filter-bar">
-          <div class="field">
-            <label for="r-from">Du</label>
-            <input type="date" id="r-from">
-          </div>
-          <div class="field">
-            <label for="r-to">Au</label>
-            <input type="date" id="r-to">
-          </div>
-          <button class="btn btn-primary" id="btn-filter">Filtrer</button>
-          <button class="btn btn-ghost" id="btn-reset-filter">Réinitialiser</button>
-          <button class="btn btn-accent" id="btn-print">Imprimer</button>
+          <div class="field"><label for="r-from">Du</label><input type="date" id="r-from"></div>
+          <div class="field"><label for="r-to">Au</label><input type="date" id="r-to"></div>
+          <button class="btn btn-primary btn-sm" id="btn-filter">Filtrer</button>
+          <button class="btn btn-ghost btn-sm" id="btn-reset-filter">Réinit.</button>
+          <button class="btn btn-accent btn-sm" id="btn-print">Imprimer</button>
         </div>
         <div class="report-stats" id="report-stats"></div>
         <div class="export-row">
-          <button class="btn btn-ghost" id="btn-csv">Exporter .csv</button>
-          <button class="btn btn-ghost" id="btn-xlsx">Exporter .xlsx</button>
+          <button class="btn btn-ghost btn-sm" id="btn-csv">Export .csv</button>
+          <button class="btn btn-ghost btn-sm" id="btn-xlsx">Export .xlsx</button>
         </div>
         <div class="table-scroll">
           <table id="report-table">
-            <thead>
-              <tr>
-                <th data-col="date">Date <span class="sort-arrow">▼</span></th>
-                <th data-col="dejJ">Déj. J <span class="sort-arrow"></span></th>
-                <th data-col="dinJ">Dîn. J <span class="sort-arrow"></span></th>
-                <th data-col="souJ">Soup. J <span class="sort-arrow"></span></th>
-                <th data-col="couJ">Couch. J <span class="sort-arrow"></span></th>
-                <th data-col="dej1">Déj. J+1 <span class="sort-arrow"></span></th>
-                <th></th>
-              </tr>
-            </thead>
+            <thead><tr>
+              <th data-col="date">Date <span class="sort-arrow">▼</span></th>
+              <th data-col="dejJ">Déj. J <span class="sort-arrow"></span></th>
+              <th data-col="dinJ">Dîn. J <span class="sort-arrow"></span></th>
+              <th data-col="souJ">Soup. J <span class="sort-arrow"></span></th>
+              <th data-col="couJ">Couch. J <span class="sort-arrow"></span></th>
+              <th data-col="dej1">Déj. J+1 <span class="sort-arrow"></span></th>
+              <th>Note</th><th></th>
+            </tr></thead>
             <tbody id="report-body"></tbody>
           </table>
           <div class="empty" id="empty-msg" style="display:none;">Aucun relevé pour cette période.</div>
         </div>
+      </div>
+    </div>
+    <!-- SETTINGS -->
+    <div id="page-settings" class="page">
+      <div class="card">
+        <h2>Synchronisation GitHub</h2>
+        <p class="hint">Connectez votre dépôt pour synchroniser vos données sur tous vos appareils.</p>
+        <div style="margin-bottom:12px;">
+          <label for="s-token">Personal Access Token GitHub</label>
+          <div class="token-field">
+            <input type="password" id="s-token" placeholder="ghp_xxxxxxxxxxxx">
+            <button class="btn btn-primary btn-sm" id="btn-connect">Connecter</button>
+          </div>
+          <p class="hint" style="margin-top:6px;">Créez un token sur github.com &gt; Settings &gt; Developer settings &gt; Fine-grained tokens. Droits : Contents (read/write) sur le dépôt Glycemie uniquement.</p>
+        </div>
+        <div id="sync-info" style="font-size:13px;color:var(--ink-soft);"></div>
+      </div>
+      <div class="card">
+        <h2>Seuils personnalisés</h2>
+        <p class="hint">Adaptez les seuils de couleur selon les recommandations de votre médecin (mg/dl).</p>
+        <div class="settings-grid">
+          <div><label for="s-low">Bas (sous)</label><input type="number" id="s-low" value="70"></div>
+          <div><label for="s-nhi">Normal (jusqu'à)</label><input type="number" id="s-nhi" value="140"></div>
+          <div><label for="s-ehi">Élevé (jusqu'à)</label><input type="number" id="s-ehi" value="180"></div>
+        </div>
+        <div class="row-actions"><button class="btn btn-primary btn-sm" id="btn-save-thresholds">Enregistrer les seuils</button></div>
       </div>
     </div>
   </div>
@@ -307,356 +248,307 @@ td.actions button.del{color:var(--high);}
 
 <script>
 (function(){
-  const STORAGE_KEY = 'entries';
-  const INITIAL_DATA = [{"id": "e0", "date": "2023-09-27", "dejJ": 150, "dinJ": 131, "souJ": 112, "couJ": 112, "dej1": null}, {"id": "e1", "date": "2023-10-01", "dejJ": 130, "dinJ": 102, "souJ": 113, "couJ": 113, "dej1": null}, {"id": "e2", "date": "2023-10-04", "dejJ": 104, "dinJ": 86, "souJ": 92, "couJ": 85, "dej1": null}, {"id": "e3", "date": "2023-10-08", "dejJ": 98, "dinJ": 68, "souJ": 79, "couJ": 75, "dej1": null}, {"id": "e4", "date": "2023-10-11", "dejJ": 88, "dinJ": 82, "souJ": 73, "couJ": 84, "dej1": null}, {"id": "e5", "date": "2023-10-18", "dejJ": 82, "dinJ": 73, "souJ": 73, "couJ": 62, "dej1": null}, {"id": "e6", "date": "2023-10-25", "dejJ": 91, "dinJ": 84, "souJ": 70, "couJ": 78, "dej1": null}, {"id": "e7", "date": "2023-11-01", "dejJ": 82, "dinJ": 60, "souJ": 70, "couJ": 60, "dej1": null}, {"id": "e8", "date": "2023-11-08", "dejJ": 93, "dinJ": 93, "souJ": 82, "couJ": 77, "dej1": 93}, {"id": "e9", "date": "2023-11-15", "dejJ": 83, "dinJ": 99, "souJ": 74, "couJ": 107, "dej1": 76}, {"id": "e10", "date": "2023-11-22", "dejJ": 82, "dinJ": 62, "souJ": 71, "couJ": 68, "dej1": 86}, {"id": "e11", "date": "2023-11-29", "dejJ": 89, "dinJ": 75, "souJ": 78, "couJ": 75, "dej1": 89}, {"id": "e12", "date": "2023-12-06", "dejJ": 92, "dinJ": 84, "souJ": 72, "couJ": 91, "dej1": 87}, {"id": "e13", "date": "2023-12-13", "dejJ": 91, "dinJ": 83, "souJ": 70, "couJ": 76, "dej1": 87}, {"id": "e14", "date": "2023-12-20", "dejJ": 98, "dinJ": null, "souJ": 89, "couJ": 69, "dej1": 91}, {"id": "e15", "date": "2023-12-27", "dejJ": 93, "dinJ": 77, "souJ": 71, "couJ": 74, "dej1": 86}, {"id": "e16", "date": "2024-01-03", "dejJ": 94, "dinJ": 107, "souJ": 81, "couJ": 70, "dej1": 92}, {"id": "e17", "date": "2024-01-10", "dejJ": 79, "dinJ": 84, "souJ": 70, "couJ": 77, "dej1": null}, {"id": "e18", "date": "2024-01-17", "dejJ": 78, "dinJ": 100, "souJ": 69, "couJ": 71, "dej1": 82}, {"id": "e19", "date": "2024-01-24", "dejJ": 81, "dinJ": 95, "souJ": 106, "couJ": 60, "dej1": 92}, {"id": "e20", "date": "2024-01-31", "dejJ": 79, "dinJ": 109, "souJ": 79, "couJ": 71, "dej1": 85}, {"id": "e21", "date": "2024-02-07", "dejJ": 76, "dinJ": 68, "souJ": 75, "couJ": 76, "dej1": 72}, {"id": "e22", "date": "2024-02-14", "dejJ": 79, "dinJ": 80, "souJ": 70, "couJ": 72, "dej1": 82}, {"id": "e23", "date": "2024-02-21", "dejJ": 78, "dinJ": 69, "souJ": 72, "couJ": 74, "dej1": 87}, {"id": "e24", "date": "2024-02-28", "dejJ": 81, "dinJ": 104, "souJ": 72, "couJ": 73, "dej1": 80}, {"id": "e25", "date": "2024-03-06", "dejJ": 72, "dinJ": 76, "souJ": 74, "couJ": 58, "dej1": 75}, {"id": "e26", "date": "2024-03-13", "dejJ": 77, "dinJ": 98, "souJ": 77, "couJ": 75, "dej1": 98}, {"id": "e27", "date": "2024-03-20", "dejJ": 105, "dinJ": 98, "souJ": 111, "couJ": 85, "dej1": 94}, {"id": "e28", "date": "2024-03-27", "dejJ": 99, "dinJ": 114, "souJ": 82, "couJ": 84, "dej1": 92}, {"id": "e29", "date": "2024-04-03", "dejJ": 92, "dinJ": 91, "souJ": 107, "couJ": 87, "dej1": 97}, {"id": "e30", "date": "2024-04-10", "dejJ": 83, "dinJ": null, "souJ": 103, "couJ": 85, "dej1": 95}, {"id": "e31", "date": "2024-04-17", "dejJ": 87, "dinJ": 119, "souJ": 94, "couJ": 112, "dej1": 104}, {"id": "e32", "date": "2024-04-24", "dejJ": 88, "dinJ": 106, "souJ": null, "couJ": 105, "dej1": 97}, {"id": "e33", "date": "2024-05-01", "dejJ": 79, "dinJ": 85, "souJ": 101, "couJ": 95, "dej1": 90}, {"id": "e34", "date": "2024-05-08", "dejJ": 84, "dinJ": 96, "souJ": 87, "couJ": 110, "dej1": 88}, {"id": "e35", "date": "2024-05-15", "dejJ": 96, "dinJ": 90, "souJ": 87, "couJ": 88, "dej1": 92}, {"id": "e36", "date": "2024-05-22", "dejJ": 92, "dinJ": 108, "souJ": 104, "couJ": 83, "dej1": 87}, {"id": "e37", "date": "2024-05-29", "dejJ": 80, "dinJ": 83, "souJ": 109, "couJ": 79, "dej1": 88}, {"id": "e38", "date": "2024-06-05", "dejJ": 81, "dinJ": 110, "souJ": 84, "couJ": 108, "dej1": 76}, {"id": "e39", "date": "2024-06-12", "dejJ": 80, "dinJ": 110, "souJ": 98, "couJ": 74, "dej1": 94}, {"id": "e40", "date": "2024-06-19", "dejJ": 97, "dinJ": 83, "souJ": 98, "couJ": 80, "dej1": 79}, {"id": "e41", "date": "2024-06-26", "dejJ": 80, "dinJ": 78, "souJ": 99, "couJ": 88, "dej1": 96}, {"id": "e42", "date": "2024-07-03", "dejJ": 90, "dinJ": 98, "souJ": 91, "couJ": 87, "dej1": 87}, {"id": "e43", "date": "2024-07-10", "dejJ": 86, "dinJ": 103, "souJ": 96, "couJ": 84, "dej1": 93}, {"id": "e44", "date": "2024-07-17", "dejJ": 89, "dinJ": 80, "souJ": 75, "couJ": 91, "dej1": 84}, {"id": "e45", "date": "2024-07-24", "dejJ": 100, "dinJ": 79, "souJ": 106, "couJ": 73, "dej1": 90}, {"id": "e46", "date": "2024-07-31", "dejJ": 87, "dinJ": 69, "souJ": 82, "couJ": 82, "dej1": 87}, {"id": "e47", "date": "2024-08-07", "dejJ": 89, "dinJ": 89, "souJ": 85, "couJ": 99, "dej1": 86}, {"id": "e48", "date": "2024-08-14", "dejJ": 90, "dinJ": 105, "souJ": 71, "couJ": 78, "dej1": 101}, {"id": "e49", "date": "2024-08-21", "dejJ": 87, "dinJ": 88, "souJ": 106, "couJ": 82, "dej1": 89}, {"id": "e50", "date": "2024-08-28", "dejJ": 86, "dinJ": 83, "souJ": 89, "couJ": 77, "dej1": 89}, {"id": "e51", "date": "2024-09-04", "dejJ": 85, "dinJ": 89, "souJ": 70, "couJ": 70, "dej1": 92}, {"id": "e52", "date": "2024-09-11", "dejJ": 85, "dinJ": 80, "souJ": 92, "couJ": 85, "dej1": 85}, {"id": "e53", "date": "2024-09-18", "dejJ": 79, "dinJ": 86, "souJ": 82, "couJ": 83, "dej1": 101}, {"id": "e54", "date": "2024-09-25", "dejJ": 99, "dinJ": 84, "souJ": 125, "couJ": 71, "dej1": 84}, {"id": "e55", "date": "2024-10-02", "dejJ": 88, "dinJ": 82, "souJ": 87, "couJ": 78, "dej1": 88}, {"id": "e56", "date": "2024-10-09", "dejJ": 93, "dinJ": 84, "souJ": 92, "couJ": 65, "dej1": 82}, {"id": "e57", "date": "2024-10-16", "dejJ": 80, "dinJ": 75, "souJ": 100, "couJ": 90, "dej1": 88}, {"id": "e58", "date": "2024-10-23", "dejJ": 89, "dinJ": 96, "souJ": 87, "couJ": 83, "dej1": 84}, {"id": "e59", "date": "2024-10-30", "dejJ": 84, "dinJ": 80, "souJ": 93, "couJ": 106, "dej1": 92}, {"id": "e60", "date": "2024-11-06", "dejJ": 86, "dinJ": 86, "souJ": 79, "couJ": 97, "dej1": 102}, {"id": "e61", "date": "2024-11-13", "dejJ": 90, "dinJ": 95, "souJ": 85, "couJ": 92, "dej1": 96}, {"id": "e62", "date": "2024-11-20", "dejJ": 92, "dinJ": 122, "souJ": 57, "couJ": 110, "dej1": 93}, {"id": "e63", "date": "2024-11-27", "dejJ": 87, "dinJ": 101, "souJ": 110, "couJ": 89, "dej1": 92}, {"id": "e64", "date": "2024-12-04", "dejJ": 95, "dinJ": 94, "souJ": 101, "couJ": 140, "dej1": 114}, {"id": "e65", "date": "2024-12-11", "dejJ": 84, "dinJ": 96, "souJ": 85, "couJ": 90, "dej1": 98}, {"id": "e66", "date": "2024-12-18", "dejJ": 96, "dinJ": 159, "souJ": 78, "couJ": 87, "dej1": 97}, {"id": "e67", "date": "2024-12-25", "dejJ": 93, "dinJ": 91, "souJ": 76, "couJ": 110, "dej1": 92}, {"id": "e68", "date": "2025-01-01", "dejJ": 102, "dinJ": 117, "souJ": 79, "couJ": 86, "dej1": 90}, {"id": "e69", "date": "2025-01-08", "dejJ": 96, "dinJ": 137, "souJ": 121, "couJ": 90, "dej1": 103}, {"id": "e70", "date": "2025-01-15", "dejJ": 116, "dinJ": 90, "souJ": 108, "couJ": 92, "dej1": 105}, {"id": "e71", "date": "2025-01-22", "dejJ": 107, "dinJ": 89, "souJ": 85, "couJ": 103, "dej1": 94}, {"id": "e72", "date": "2025-01-29", "dejJ": 97, "dinJ": 93, "souJ": 90, "couJ": 90, "dej1": 83}, {"id": "e73", "date": "2025-02-05", "dejJ": 96, "dinJ": 84, "souJ": 109, "couJ": 108, "dej1": 103}, {"id": "e74", "date": "2025-02-12", "dejJ": 116, "dinJ": null, "souJ": 73, "couJ": 94, "dej1": 100}, {"id": "e75", "date": "2025-02-19", "dejJ": 96, "dinJ": 104, "souJ": 116, "couJ": 93, "dej1": 108}, {"id": "e76", "date": "2025-02-26", "dejJ": 101, "dinJ": 88, "souJ": 112, "couJ": 89, "dej1": 99}, {"id": "e77", "date": "2025-03-05", "dejJ": 97, "dinJ": 138, "souJ": 90, "couJ": 99, "dej1": 100}, {"id": "e78", "date": "2025-03-12", "dejJ": 106, "dinJ": 80, "souJ": 130, "couJ": 98, "dej1": 99}, {"id": "e79", "date": "2025-03-19", "dejJ": 98, "dinJ": 108, "souJ": 115, "couJ": 85, "dej1": 86}, {"id": "e80", "date": "2025-03-26", "dejJ": 96, "dinJ": 109, "souJ": 117, "couJ": 90, "dej1": 100}, {"id": "e81", "date": "2025-04-02", "dejJ": 93, "dinJ": 100, "souJ": 121, "couJ": 87, "dej1": 101}, {"id": "e82", "date": "2025-04-09", "dejJ": 102, "dinJ": 113, "souJ": 110, "couJ": 99, "dej1": 88}, {"id": "e83", "date": "2025-04-16", "dejJ": 99, "dinJ": 87, "souJ": 66, "couJ": 91, "dej1": 106}, {"id": "e84", "date": "2025-04-23", "dejJ": 110, "dinJ": 98, "souJ": 112, "couJ": 123, "dej1": 102}, {"id": "e85", "date": "2025-04-30", "dejJ": 97, "dinJ": 86, "souJ": 88, "couJ": 92, "dej1": 95}, {"id": "e86", "date": "2025-05-07", "dejJ": 110, "dinJ": 92, "souJ": 136, "couJ": 103, "dej1": 102}, {"id": "e87", "date": "2025-05-14", "dejJ": 99, "dinJ": 100, "souJ": 108, "couJ": 81, "dej1": 95}, {"id": "e88", "date": "2025-05-21", "dejJ": 102, "dinJ": 79, "souJ": 88, "couJ": 87, "dej1": 93}, {"id": "e89", "date": "2025-05-28", "dejJ": 99, "dinJ": 81, "souJ": 99, "couJ": 86, "dej1": 103}, {"id": "e90", "date": "2025-06-04", "dejJ": 104, "dinJ": 100, "souJ": 118, "couJ": 96, "dej1": 104}, {"id": "e91", "date": "2025-06-11", "dejJ": 108, "dinJ": 96, "souJ": 124, "couJ": 114, "dej1": 103}, {"id": "e92", "date": "2025-06-18", "dejJ": 105, "dinJ": 90, "souJ": 125, "couJ": 116, "dej1": 107}, {"id": "e93", "date": "2025-06-25", "dejJ": 106, "dinJ": 98, "souJ": 144, "couJ": 92, "dej1": 101}, {"id": "e94", "date": "2025-07-09", "dejJ": 104, "dinJ": 87, "souJ": 106, "couJ": 85, "dej1": 105}, {"id": "e95", "date": "2025-07-16", "dejJ": 94, "dinJ": 104, "souJ": 115, "couJ": 116, "dej1": 110}, {"id": "e96", "date": "2025-07-23", "dejJ": 98, "dinJ": 95, "souJ": 93, "couJ": 107, "dej1": 110}, {"id": "e97", "date": "2025-07-30", "dejJ": 106, "dinJ": null, "souJ": null, "couJ": null, "dej1": null}, {"id": "e98", "date": "2025-08-06", "dejJ": 104, "dinJ": 100, "souJ": 99, "couJ": 102, "dej1": 104}, {"id": "e99", "date": "2025-08-13", "dejJ": 106, "dinJ": 101, "souJ": 99, "couJ": 97, "dej1": 116}, {"id": "e100", "date": "2025-08-20", "dejJ": 89, "dinJ": 89, "souJ": 95, "couJ": 89, "dej1": 109}, {"id": "e101", "date": "2025-08-27", "dejJ": 101, "dinJ": 100, "souJ": 104, "couJ": 104, "dej1": 105}, {"id": "e102", "date": "2025-09-03", "dejJ": 109, "dinJ": 91, "souJ": 94, "couJ": 109, "dej1": 105}, {"id": "e103", "date": "2025-09-10", "dejJ": 108, "dinJ": 130, "souJ": 87, "couJ": 125, "dej1": 106}, {"id": "e104", "date": "2025-09-17", "dejJ": 107, "dinJ": 99, "souJ": 92, "couJ": 103, "dej1": 118}, {"id": "e105", "date": "2025-09-24", "dejJ": 108, "dinJ": 92, "souJ": 98, "couJ": 110, "dej1": 102}, {"id": "e106", "date": "2025-10-01", "dejJ": 110, "dinJ": 97, "souJ": 134, "couJ": 111, "dej1": 109}, {"id": "e107", "date": "2025-10-08", "dejJ": 114, "dinJ": 123, "souJ": 86, "couJ": 96, "dej1": 105}, {"id": "e108", "date": "2025-10-15", "dejJ": 119, "dinJ": 91, "souJ": 91, "couJ": 121, "dej1": 111}, {"id": "e109", "date": "2025-10-22", "dejJ": 110, "dinJ": 101, "souJ": 92, "couJ": 133, "dej1": 105}, {"id": "e110", "date": "2025-10-29", "dejJ": 102, "dinJ": 116, "souJ": 109, "couJ": 93, "dej1": 106}, {"id": "e111", "date": "2025-11-05", "dejJ": 102, "dinJ": 115, "souJ": 78, "couJ": 108, "dej1": 99}, {"id": "e112", "date": "2025-11-12", "dejJ": 113, "dinJ": 88, "souJ": 94, "couJ": 124, "dej1": 97}, {"id": "e113", "date": "2025-11-19", "dejJ": 112, "dinJ": 92, "souJ": 115, "couJ": 119, "dej1": 101}, {"id": "e114", "date": "2025-12-10", "dejJ": 106, "dinJ": 99, "souJ": 148, "couJ": 106, "dej1": 102}, {"id": "e115", "date": "2025-12-17", "dejJ": 110, "dinJ": 88, "souJ": 102, "couJ": 110, "dej1": 97}, {"id": "e116", "date": "2025-12-24", "dejJ": 108, "dinJ": 87, "souJ": 80, "couJ": 97, "dej1": 102}, {"id": "e117", "date": "2025-12-31", "dejJ": 112, "dinJ": 122, "souJ": null, "couJ": 109, "dej1": 121}, {"id": "e118", "date": "2026-01-07", "dejJ": 98, "dinJ": 126, "souJ": 86, "couJ": 96, "dej1": 102}, {"id": "e119", "date": "2026-01-14", "dejJ": 121, "dinJ": 87, "souJ": 128, "couJ": 81, "dej1": 112}, {"id": "e120", "date": "2026-01-21", "dejJ": 105, "dinJ": 67, "souJ": 95, "couJ": 83, "dej1": 94}, {"id": "e121", "date": "2026-01-28", "dejJ": 110, "dinJ": 123, "souJ": 103, "couJ": 92, "dej1": 101}, {"id": "e122", "date": "2026-02-04", "dejJ": 102, "dinJ": 89, "souJ": 102, "couJ": 98, "dej1": 106}, {"id": "e123", "date": "2026-02-11", "dejJ": 84, "dinJ": 101, "souJ": 146, "couJ": 104, "dej1": null}, {"id": "e124", "date": "2026-03-11", "dejJ": 107, "dinJ": 90, "souJ": 71, "couJ": 107, "dej1": 117}, {"id": "e125", "date": "2026-03-18", "dejJ": 126, "dinJ": 182, "souJ": 110, "couJ": 98, "dej1": 142}, {"id": "e126", "date": "2026-03-25", "dejJ": 112, "dinJ": 80, "souJ": 98, "couJ": null, "dej1": 107}, {"id": "e127", "date": "2026-04-01", "dejJ": 97, "dinJ": 85, "souJ": 81, "couJ": 84, "dej1": 99}, {"id": "e128", "date": "2026-04-08", "dejJ": 87, "dinJ": null, "souJ": 103, "couJ": 120, "dej1": 107}, {"id": "e129", "date": "2026-04-15", "dejJ": 100, "dinJ": 87, "souJ": 84, "couJ": 77, "dej1": 97}, {"id": "e130", "date": "2026-04-22", "dejJ": 104, "dinJ": 92, "souJ": 86, "couJ": 93, "dej1": 96}, {"id": "e131", "date": "2026-04-29", "dejJ": 99, "dinJ": 85, "souJ": 84, "couJ": 129, "dej1": 91}, {"id": "e132", "date": "2026-05-06", "dejJ": 98, "dinJ": 101, "souJ": 78, "couJ": 93, "dej1": 93}, {"id": "e133", "date": "2026-05-13", "dejJ": 101, "dinJ": null, "souJ": 86, "couJ": 108, "dej1": 106}, {"id": "e134", "date": "2026-05-27", "dejJ": 105, "dinJ": 91, "souJ": 79, "couJ": null, "dej1": 96}, {"id": "e135", "date": "2026-06-03", "dejJ": 92, "dinJ": 72, "souJ": 80, "couJ": 97, "dej1": 86}, {"id": "e136", "date": "2026-06-10", "dejJ": 102, "dinJ": 78, "souJ": 82, "couJ": 90, "dej1": 88}, {"id": "e137", "date": "2026-06-17", "dejJ": 77, "dinJ": 82, "souJ": 80, "couJ": 86, "dej1": 86}, {"id": "e138", "date": "2026-07-15", "dejJ": 86, "dinJ": 91, "souJ": 104, "couJ": 84, "dej1": 93}, {"id": "e139", "date": "2026-07-22", "dejJ": 91, "dinJ": 132, "souJ": null, "couJ": null, "dej1": null}];
+  var STORAGE_KEY = 'glyc_entries';
+  var SETTINGS_KEY = 'glyc_settings';
+  var TOKEN_KEY = 'glyc_gh_token';
+  var GITHUB_REPO = 'prettoo007/Glycemie';
+  var GITHUB_FILE = 'data.json';
 
-  const fields = ['dejJ','dinJ','souJ','couJ','dej1'];
-  const labels = {dejJ:'Déjeuner J', dinJ:'Dîner J', souJ:'Souper J', couJ:'Coucher J', dej1:'Déjeuner J+1'};
-  const labelsShort = {dejJ:'Déj. J', dinJ:'Dîn. J', souJ:'Soup. J', couJ:'Couch. J', dej1:'Déj. J+1'};
-  const colors = {dejJ:'#1F5C56', dinJ:'#3F6E93', souJ:'#C98A2C', couJ:'#B4463D', dej1:'#E0A458'};
+  var INITIAL_DATA = [{"id": "e0", "date": "2023-09-27", "dejJ": 150, "dinJ": 131, "souJ": 112, "couJ": 112, "dej1": null}, {"id": "e1", "date": "2023-10-01", "dejJ": 130, "dinJ": 102, "souJ": 113, "couJ": 113, "dej1": null}, {"id": "e2", "date": "2023-10-04", "dejJ": 104, "dinJ": 86, "souJ": 92, "couJ": 85, "dej1": null}, {"id": "e3", "date": "2023-10-08", "dejJ": 98, "dinJ": 68, "souJ": 79, "couJ": 75, "dej1": null}, {"id": "e4", "date": "2023-10-11", "dejJ": 88, "dinJ": 82, "souJ": 73, "couJ": 84, "dej1": null}, {"id": "e5", "date": "2023-10-18", "dejJ": 82, "dinJ": 73, "souJ": 73, "couJ": 62, "dej1": null}, {"id": "e6", "date": "2023-10-25", "dejJ": 91, "dinJ": 84, "souJ": 70, "couJ": 78, "dej1": null}, {"id": "e7", "date": "2023-11-01", "dejJ": 82, "dinJ": 60, "souJ": 70, "couJ": 60, "dej1": null}, {"id": "e8", "date": "2023-11-08", "dejJ": 93, "dinJ": 93, "souJ": 82, "couJ": 77, "dej1": 93}, {"id": "e9", "date": "2023-11-15", "dejJ": 83, "dinJ": 99, "souJ": 74, "couJ": 107, "dej1": 76}, {"id": "e10", "date": "2023-11-22", "dejJ": 82, "dinJ": 62, "souJ": 71, "couJ": 68, "dej1": 86}, {"id": "e11", "date": "2023-11-29", "dejJ": 89, "dinJ": 75, "souJ": 78, "couJ": 75, "dej1": 89}, {"id": "e12", "date": "2023-12-06", "dejJ": 92, "dinJ": 84, "souJ": 72, "couJ": 91, "dej1": 87}, {"id": "e13", "date": "2023-12-13", "dejJ": 91, "dinJ": 83, "souJ": 70, "couJ": 76, "dej1": 87}, {"id": "e14", "date": "2023-12-20", "dejJ": 98, "dinJ": null, "souJ": 89, "couJ": 69, "dej1": 91}, {"id": "e15", "date": "2023-12-27", "dejJ": 93, "dinJ": 77, "souJ": 71, "couJ": 74, "dej1": 86}, {"id": "e16", "date": "2024-01-03", "dejJ": 94, "dinJ": 107, "souJ": 81, "couJ": 70, "dej1": 92}, {"id": "e17", "date": "2024-01-10", "dejJ": 79, "dinJ": 84, "souJ": 70, "couJ": 77, "dej1": null}, {"id": "e18", "date": "2024-01-17", "dejJ": 78, "dinJ": 100, "souJ": 69, "couJ": 71, "dej1": 82}, {"id": "e19", "date": "2024-01-24", "dejJ": 81, "dinJ": 95, "souJ": 106, "couJ": 60, "dej1": 92}, {"id": "e20", "date": "2024-01-31", "dejJ": 79, "dinJ": 109, "souJ": 79, "couJ": 71, "dej1": 85}, {"id": "e21", "date": "2024-02-07", "dejJ": 76, "dinJ": 68, "souJ": 75, "couJ": 76, "dej1": 72}, {"id": "e22", "date": "2024-02-14", "dejJ": 79, "dinJ": 80, "souJ": 70, "couJ": 72, "dej1": 82}, {"id": "e23", "date": "2024-02-21", "dejJ": 78, "dinJ": 69, "souJ": 72, "couJ": 74, "dej1": 87}, {"id": "e24", "date": "2024-02-28", "dejJ": 81, "dinJ": 104, "souJ": 72, "couJ": 73, "dej1": 80}, {"id": "e25", "date": "2024-03-06", "dejJ": 72, "dinJ": 76, "souJ": 74, "couJ": 58, "dej1": 75}, {"id": "e26", "date": "2024-03-13", "dejJ": 77, "dinJ": 98, "souJ": 77, "couJ": 75, "dej1": 98}, {"id": "e27", "date": "2024-03-20", "dejJ": 105, "dinJ": 98, "souJ": 111, "couJ": 85, "dej1": 94}, {"id": "e28", "date": "2024-03-27", "dejJ": 99, "dinJ": 114, "souJ": 82, "couJ": 84, "dej1": 92}, {"id": "e29", "date": "2024-04-03", "dejJ": 92, "dinJ": 91, "souJ": 107, "couJ": 87, "dej1": 97}, {"id": "e30", "date": "2024-04-10", "dejJ": 83, "dinJ": null, "souJ": 103, "couJ": 85, "dej1": 95}, {"id": "e31", "date": "2024-04-17", "dejJ": 87, "dinJ": 119, "souJ": 94, "couJ": 112, "dej1": 104}, {"id": "e32", "date": "2024-04-24", "dejJ": 88, "dinJ": 106, "souJ": null, "couJ": 105, "dej1": 97}, {"id": "e33", "date": "2024-05-01", "dejJ": 79, "dinJ": 85, "souJ": 101, "couJ": 95, "dej1": 90}, {"id": "e34", "date": "2024-05-08", "dejJ": 84, "dinJ": 96, "souJ": 87, "couJ": 110, "dej1": 88}, {"id": "e35", "date": "2024-05-15", "dejJ": 96, "dinJ": 90, "souJ": 87, "couJ": 88, "dej1": 92}, {"id": "e36", "date": "2024-05-22", "dejJ": 92, "dinJ": 108, "souJ": 104, "couJ": 83, "dej1": 87}, {"id": "e37", "date": "2024-05-29", "dejJ": 80, "dinJ": 83, "souJ": 109, "couJ": 79, "dej1": 88}, {"id": "e38", "date": "2024-06-05", "dejJ": 81, "dinJ": 110, "souJ": 84, "couJ": 108, "dej1": 76}, {"id": "e39", "date": "2024-06-12", "dejJ": 80, "dinJ": 110, "souJ": 98, "couJ": 74, "dej1": 94}, {"id": "e40", "date": "2024-06-19", "dejJ": 97, "dinJ": 83, "souJ": 98, "couJ": 80, "dej1": 79}, {"id": "e41", "date": "2024-06-26", "dejJ": 80, "dinJ": 78, "souJ": 99, "couJ": 88, "dej1": 96}, {"id": "e42", "date": "2024-07-03", "dejJ": 90, "dinJ": 98, "souJ": 91, "couJ": 87, "dej1": 87}, {"id": "e43", "date": "2024-07-10", "dejJ": 86, "dinJ": 103, "souJ": 96, "couJ": 84, "dej1": 93}, {"id": "e44", "date": "2024-07-17", "dejJ": 89, "dinJ": 80, "souJ": 75, "couJ": 91, "dej1": 84}, {"id": "e45", "date": "2024-07-24", "dejJ": 100, "dinJ": 79, "souJ": 106, "couJ": 73, "dej1": 90}, {"id": "e46", "date": "2024-07-31", "dejJ": 87, "dinJ": 69, "souJ": 82, "couJ": 82, "dej1": 87}, {"id": "e47", "date": "2024-08-07", "dejJ": 89, "dinJ": 89, "souJ": 85, "couJ": 99, "dej1": 86}, {"id": "e48", "date": "2024-08-14", "dejJ": 90, "dinJ": 105, "souJ": 71, "couJ": 78, "dej1": 101}, {"id": "e49", "date": "2024-08-21", "dejJ": 87, "dinJ": 88, "souJ": 106, "couJ": 82, "dej1": 89}, {"id": "e50", "date": "2024-08-28", "dejJ": 86, "dinJ": 83, "souJ": 89, "couJ": 77, "dej1": 89}, {"id": "e51", "date": "2024-09-04", "dejJ": 85, "dinJ": 89, "souJ": 70, "couJ": 70, "dej1": 92}, {"id": "e52", "date": "2024-09-11", "dejJ": 85, "dinJ": 80, "souJ": 92, "couJ": 85, "dej1": 85}, {"id": "e53", "date": "2024-09-18", "dejJ": 79, "dinJ": 86, "souJ": 82, "couJ": 83, "dej1": 101}, {"id": "e54", "date": "2024-09-25", "dejJ": 99, "dinJ": 84, "souJ": 125, "couJ": 71, "dej1": 84}, {"id": "e55", "date": "2024-10-02", "dejJ": 88, "dinJ": 82, "souJ": 87, "couJ": 78, "dej1": 88}, {"id": "e56", "date": "2024-10-09", "dejJ": 93, "dinJ": 84, "souJ": 92, "couJ": 65, "dej1": 82}, {"id": "e57", "date": "2024-10-16", "dejJ": 80, "dinJ": 75, "souJ": 100, "couJ": 90, "dej1": 88}, {"id": "e58", "date": "2024-10-23", "dejJ": 89, "dinJ": 96, "souJ": 87, "couJ": 83, "dej1": 84}, {"id": "e59", "date": "2024-10-30", "dejJ": 84, "dinJ": 80, "souJ": 93, "couJ": 106, "dej1": 92}, {"id": "e60", "date": "2024-11-06", "dejJ": 86, "dinJ": 86, "souJ": 79, "couJ": 97, "dej1": 102}, {"id": "e61", "date": "2024-11-13", "dejJ": 90, "dinJ": 95, "souJ": 85, "couJ": 92, "dej1": 96}, {"id": "e62", "date": "2024-11-20", "dejJ": 92, "dinJ": 122, "souJ": 57, "couJ": 110, "dej1": 93}, {"id": "e63", "date": "2024-11-27", "dejJ": 87, "dinJ": 101, "souJ": 110, "couJ": 89, "dej1": 92}, {"id": "e64", "date": "2024-12-04", "dejJ": 95, "dinJ": 94, "souJ": 101, "couJ": 140, "dej1": 114}, {"id": "e65", "date": "2024-12-11", "dejJ": 84, "dinJ": 96, "souJ": 85, "couJ": 90, "dej1": 98}, {"id": "e66", "date": "2024-12-18", "dejJ": 96, "dinJ": 159, "souJ": 78, "couJ": 87, "dej1": 97}, {"id": "e67", "date": "2024-12-25", "dejJ": 93, "dinJ": 91, "souJ": 76, "couJ": 110, "dej1": 92}, {"id": "e68", "date": "2025-01-01", "dejJ": 102, "dinJ": 117, "souJ": 79, "couJ": 86, "dej1": 90}, {"id": "e69", "date": "2025-01-08", "dejJ": 96, "dinJ": 137, "souJ": 121, "couJ": 90, "dej1": 103}, {"id": "e70", "date": "2025-01-15", "dejJ": 116, "dinJ": 90, "souJ": 108, "couJ": 92, "dej1": 105}, {"id": "e71", "date": "2025-01-22", "dejJ": 107, "dinJ": 89, "souJ": 85, "couJ": 103, "dej1": 94}, {"id": "e72", "date": "2025-01-29", "dejJ": 97, "dinJ": 93, "souJ": 90, "couJ": 90, "dej1": 83}, {"id": "e73", "date": "2025-02-05", "dejJ": 96, "dinJ": 84, "souJ": 109, "couJ": 108, "dej1": 103}, {"id": "e74", "date": "2025-02-12", "dejJ": 116, "dinJ": null, "souJ": 73, "couJ": 94, "dej1": 100}, {"id": "e75", "date": "2025-02-19", "dejJ": 96, "dinJ": 104, "souJ": 116, "couJ": 93, "dej1": 108}, {"id": "e76", "date": "2025-02-26", "dejJ": 101, "dinJ": 88, "souJ": 112, "couJ": 89, "dej1": 99}, {"id": "e77", "date": "2025-03-05", "dejJ": 97, "dinJ": 138, "souJ": 90, "couJ": 99, "dej1": 100}, {"id": "e78", "date": "2025-03-12", "dejJ": 106, "dinJ": 80, "souJ": 130, "couJ": 98, "dej1": 99}, {"id": "e79", "date": "2025-03-19", "dejJ": 98, "dinJ": 108, "souJ": 115, "couJ": 85, "dej1": 86}, {"id": "e80", "date": "2025-03-26", "dejJ": 96, "dinJ": 109, "souJ": 117, "couJ": 90, "dej1": 100}, {"id": "e81", "date": "2025-04-02", "dejJ": 93, "dinJ": 100, "souJ": 121, "couJ": 87, "dej1": 101}, {"id": "e82", "date": "2025-04-09", "dejJ": 102, "dinJ": 113, "souJ": 110, "couJ": 99, "dej1": 88}, {"id": "e83", "date": "2025-04-16", "dejJ": 99, "dinJ": 87, "souJ": 66, "couJ": 91, "dej1": 106}, {"id": "e84", "date": "2025-04-23", "dejJ": 110, "dinJ": 98, "souJ": 112, "couJ": 123, "dej1": 102}, {"id": "e85", "date": "2025-04-30", "dejJ": 97, "dinJ": 86, "souJ": 88, "couJ": 92, "dej1": 95}, {"id": "e86", "date": "2025-05-07", "dejJ": 110, "dinJ": 92, "souJ": 136, "couJ": 103, "dej1": 102}, {"id": "e87", "date": "2025-05-14", "dejJ": 99, "dinJ": 100, "souJ": 108, "couJ": 81, "dej1": 95}, {"id": "e88", "date": "2025-05-21", "dejJ": 102, "dinJ": 79, "souJ": 88, "couJ": 87, "dej1": 93}, {"id": "e89", "date": "2025-05-28", "dejJ": 99, "dinJ": 81, "souJ": 99, "couJ": 86, "dej1": 103}, {"id": "e90", "date": "2025-06-04", "dejJ": 104, "dinJ": 100, "souJ": 118, "couJ": 96, "dej1": 104}, {"id": "e91", "date": "2025-06-11", "dejJ": 108, "dinJ": 96, "souJ": 124, "couJ": 114, "dej1": 103}, {"id": "e92", "date": "2025-06-18", "dejJ": 105, "dinJ": 90, "souJ": 125, "couJ": 116, "dej1": 107}, {"id": "e93", "date": "2025-06-25", "dejJ": 106, "dinJ": 98, "souJ": 144, "couJ": 92, "dej1": 101}, {"id": "e94", "date": "2025-07-09", "dejJ": 104, "dinJ": 87, "souJ": 106, "couJ": 85, "dej1": 105}, {"id": "e95", "date": "2025-07-16", "dejJ": 94, "dinJ": 104, "souJ": 115, "couJ": 116, "dej1": 110}, {"id": "e96", "date": "2025-07-23", "dejJ": 98, "dinJ": 95, "souJ": 93, "couJ": 107, "dej1": 110}, {"id": "e97", "date": "2025-07-30", "dejJ": 106, "dinJ": null, "souJ": null, "couJ": null, "dej1": null}, {"id": "e98", "date": "2025-08-06", "dejJ": 104, "dinJ": 100, "souJ": 99, "couJ": 102, "dej1": 104}, {"id": "e99", "date": "2025-08-13", "dejJ": 106, "dinJ": 101, "souJ": 99, "couJ": 97, "dej1": 116}, {"id": "e100", "date": "2025-08-20", "dejJ": 89, "dinJ": 89, "souJ": 95, "couJ": 89, "dej1": 109}, {"id": "e101", "date": "2025-08-27", "dejJ": 101, "dinJ": 100, "souJ": 104, "couJ": 104, "dej1": 105}, {"id": "e102", "date": "2025-09-03", "dejJ": 109, "dinJ": 91, "souJ": 94, "couJ": 109, "dej1": 105}, {"id": "e103", "date": "2025-09-10", "dejJ": 108, "dinJ": 130, "souJ": 87, "couJ": 125, "dej1": 106}, {"id": "e104", "date": "2025-09-17", "dejJ": 107, "dinJ": 99, "souJ": 92, "couJ": 103, "dej1": 118}, {"id": "e105", "date": "2025-09-24", "dejJ": 108, "dinJ": 92, "souJ": 98, "couJ": 110, "dej1": 102}, {"id": "e106", "date": "2025-10-01", "dejJ": 110, "dinJ": 97, "souJ": 134, "couJ": 111, "dej1": 109}, {"id": "e107", "date": "2025-10-08", "dejJ": 114, "dinJ": 123, "souJ": 86, "couJ": 96, "dej1": 105}, {"id": "e108", "date": "2025-10-15", "dejJ": 119, "dinJ": 91, "souJ": 91, "couJ": 121, "dej1": 111}, {"id": "e109", "date": "2025-10-22", "dejJ": 110, "dinJ": 101, "souJ": 92, "couJ": 133, "dej1": 105}, {"id": "e110", "date": "2025-10-29", "dejJ": 102, "dinJ": 116, "souJ": 109, "couJ": 93, "dej1": 106}, {"id": "e111", "date": "2025-11-05", "dejJ": 102, "dinJ": 115, "souJ": 78, "couJ": 108, "dej1": 99}, {"id": "e112", "date": "2025-11-12", "dejJ": 113, "dinJ": 88, "souJ": 94, "couJ": 124, "dej1": 97}, {"id": "e113", "date": "2025-11-19", "dejJ": 112, "dinJ": 92, "souJ": 115, "couJ": 119, "dej1": 101}, {"id": "e114", "date": "2025-12-10", "dejJ": 106, "dinJ": 99, "souJ": 148, "couJ": 106, "dej1": 102}, {"id": "e115", "date": "2025-12-17", "dejJ": 110, "dinJ": 88, "souJ": 102, "couJ": 110, "dej1": 97}, {"id": "e116", "date": "2025-12-24", "dejJ": 108, "dinJ": 87, "souJ": 80, "couJ": 97, "dej1": 102}, {"id": "e117", "date": "2025-12-31", "dejJ": 112, "dinJ": 122, "souJ": null, "couJ": 109, "dej1": 121}, {"id": "e118", "date": "2026-01-07", "dejJ": 98, "dinJ": 126, "souJ": 86, "couJ": 96, "dej1": 102}, {"id": "e119", "date": "2026-01-14", "dejJ": 121, "dinJ": 87, "souJ": 128, "couJ": 81, "dej1": 112}, {"id": "e120", "date": "2026-01-21", "dejJ": 105, "dinJ": 67, "souJ": 95, "couJ": 83, "dej1": 94}, {"id": "e121", "date": "2026-01-28", "dejJ": 110, "dinJ": 123, "souJ": 103, "couJ": 92, "dej1": 101}, {"id": "e122", "date": "2026-02-04", "dejJ": 102, "dinJ": 89, "souJ": 102, "couJ": 98, "dej1": 106}, {"id": "e123", "date": "2026-02-11", "dejJ": 84, "dinJ": 101, "souJ": 146, "couJ": 104, "dej1": null}, {"id": "e124", "date": "2026-03-11", "dejJ": 107, "dinJ": 90, "souJ": 71, "couJ": 107, "dej1": 117}, {"id": "e125", "date": "2026-03-18", "dejJ": 126, "dinJ": 182, "souJ": 110, "couJ": 98, "dej1": 142}, {"id": "e126", "date": "2026-03-25", "dejJ": 112, "dinJ": 80, "souJ": 98, "couJ": null, "dej1": 107}, {"id": "e127", "date": "2026-04-01", "dejJ": 97, "dinJ": 85, "souJ": 81, "couJ": 84, "dej1": 99}, {"id": "e128", "date": "2026-04-08", "dejJ": 87, "dinJ": null, "souJ": 103, "couJ": 120, "dej1": 107}, {"id": "e129", "date": "2026-04-15", "dejJ": 100, "dinJ": 87, "souJ": 84, "couJ": 77, "dej1": 97}, {"id": "e130", "date": "2026-04-22", "dejJ": 104, "dinJ": 92, "souJ": 86, "couJ": 93, "dej1": 96}, {"id": "e131", "date": "2026-04-29", "dejJ": 99, "dinJ": 85, "souJ": 84, "couJ": 129, "dej1": 91}, {"id": "e132", "date": "2026-05-06", "dejJ": 98, "dinJ": 101, "souJ": 78, "couJ": 93, "dej1": 93}, {"id": "e133", "date": "2026-05-13", "dejJ": 101, "dinJ": null, "souJ": 86, "couJ": 108, "dej1": 106}, {"id": "e134", "date": "2026-05-27", "dejJ": 105, "dinJ": 91, "souJ": 79, "couJ": null, "dej1": 96}, {"id": "e135", "date": "2026-06-03", "dejJ": 92, "dinJ": 72, "souJ": 80, "couJ": 97, "dej1": 86}, {"id": "e136", "date": "2026-06-10", "dejJ": 102, "dinJ": 78, "souJ": 82, "couJ": 90, "dej1": 88}, {"id": "e137", "date": "2026-06-17", "dejJ": 77, "dinJ": 82, "souJ": 80, "couJ": 86, "dej1": 86}, {"id": "e138", "date": "2026-07-15", "dejJ": 86, "dinJ": 91, "souJ": 104, "couJ": 84, "dej1": 93}, {"id": "e139", "date": "2026-07-22", "dejJ": 91, "dinJ": 132, "souJ": null, "couJ": null, "dej1": null}];
 
-  let entries = [];
-  let editingId = null;
-  let chartMain = null, chartTrend = null;
-  let sortCol = 'date', sortDir = 'desc';
-  let filterFrom = '', filterTo = '';
-  let pendingDeleteId = null;
+  var fields = ['dejJ','dinJ','souJ','couJ','dej1'];
+  var labels = {dejJ:'Déjeuner J', dinJ:'Dîner J', souJ:'Souper J', couJ:'Coucher J', dej1:'Déjeuner J+1'};
+  var labelsShort = {dejJ:'Déj. J', dinJ:'Dîn. J', souJ:'Soup. J', couJ:'Couch. J', dej1:'Déj. J+1'};
+  var mealColors = {dejJ:'#1F5C56', dinJ:'#3F6E93', souJ:'#C98A2C', couJ:'#B4463D', dej1:'#E0A458'};
 
-  const $ = s => document.querySelector(s);
-  const $$ = s => document.querySelectorAll(s);
+  var entries = [];
+  var editingId = null;
+  var chartMain = null, chartTrend = null;
+  var sortCol = 'date', sortDir = 'desc';
+  var filterFrom = '', filterTo = '';
+  var pendingDeleteId = null;
+  var ghToken = '';
+  var ghSha = null;
+  var thresholds = {low:70, normalHi:140, elevatedHi:180};
 
-  // ── NAV ──
-  $$('.tab').forEach(t => t.addEventListener('click', () => {
-    $$('.tab').forEach(x => x.classList.remove('active'));
-    $$('.page').forEach(x => x.classList.remove('active'));
-    t.classList.add('active');
-    $('#page-' + t.dataset.page).classList.add('active');
-    if(t.dataset.page === 'dashboard') renderDashboard();
-    if(t.dataset.page === 'rapport') renderReport();
-  }));
+  function qs(s){ return document.querySelector(s); }
+  function qsa(s){ return document.querySelectorAll(s); }
 
-  // ── UTILS ──
+  // NAV
+  qsa('.tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      qsa('.tab').forEach(function(x){ x.classList.remove('active'); });
+      qsa('.page').forEach(function(x){ x.classList.remove('active'); });
+      t.classList.add('active');
+      qs('#page-' + t.dataset.page).classList.add('active');
+      if(t.dataset.page === 'dashboard') renderDashboard();
+      if(t.dataset.page === 'rapport') renderReport();
+      if(t.dataset.page === 'settings') renderSettings();
+    });
+  });
+
+  // UTILS
   function rangeInfo(v){
-    if(v===null||v===undefined||v==='') return {label:'—',color:'var(--ink-soft)'};
-    if(v<70) return {label:'bas',color:'var(--low)'};
-    if(v<=140) return {label:'normal',color:'var(--normal)'};
-    if(v<=180) return {label:'élevé',color:'var(--elevated)'};
-    return {label:'haut',color:'var(--high)'};
+    if(v === null || v === undefined || v === '') return {label:'\u2014', color:'var(--ink-soft)'};
+    if(v < thresholds.low) return {label:'bas', color:'var(--low)'};
+    if(v <= thresholds.normalHi) return {label:'normal', color:'var(--normal)'};
+    if(v <= thresholds.elevatedHi) return {label:'\u00e9lev\u00e9', color:'var(--elevated)'};
+    return {label:'haut', color:'var(--high)'};
   }
   function fmtDate(iso){
-    const d=new Date(iso+'T00:00:00');
-    return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric'});
+    var d = new Date(iso + 'T00:00:00');
+    return d.toLocaleDateString('fr-FR', {day:'2-digit', month:'2-digit', year:'numeric'});
   }
-  function avg(arr){const f=arr.filter(v=>v!=null);return f.length?Math.round(f.reduce((a,b)=>a+b,0)/f.length):null;}
-  function minV(arr){const f=arr.filter(v=>v!=null);return f.length?Math.min(...f):null;}
-  function maxV(arr){const f=arr.filter(v=>v!=null);return f.length?Math.max(...f):null;}
-
+  function calcAvg(arr){var f=arr.filter(function(v){return v!=null;});return f.length?Math.round(f.reduce(function(a,b){return a+b;},0)/f.length):null;}
+  function calcMin(arr){var f=arr.filter(function(v){return v!=null;});return f.length?Math.min.apply(null,f):null;}
+  function calcMax(arr){var f=arr.filter(function(v){return v!=null;});return f.length?Math.max.apply(null,f):null;}
+  function allValsOf(list){var out=[];list.forEach(function(e){fields.forEach(function(k){if(e[k]!=null)out.push(e[k]);});});return out;}
   function dropletSvg(color){
-    return '<svg width="24" height="30" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-      '<path d="M13 1C13 1 24 15.5 24 21.5C24 27.8513 19.0751 31 13 31C6.92487 31 2 27.8513 2 21.5C2 15.5 13 1 13 1Z" fill="'+color+'" fill-opacity="0.85"/></svg>';
+    return '<svg width="24" height="30" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1C13 1 24 15.5 24 21.5C24 27.8513 19.0751 31 13 31C6.92487 31 2 27.8513 2 21.5C2 15.5 13 1 13 1Z" fill="'+color+'" fill-opacity="0.85"/></svg>';
   }
 
-  // ── STORAGE ──
-  async function loadEntries(){
-    try{
-      const raw=window.localStorage.getItem(STORAGE_KEY);
-      if(raw){entries=JSON.parse(raw);}
-      else{entries=INITIAL_DATA.map(e=>({...e}));await persist();}
-    }catch(e){entries=[];}
-    entries.sort((a,b)=>a.date.localeCompare(b.date));
+  // STORAGE LOCAL
+  function loadLocal(){
+    try{var raw=localStorage.getItem(STORAGE_KEY);if(raw){entries=JSON.parse(raw);}else{entries=INITIAL_DATA.map(function(e){return JSON.parse(JSON.stringify(e));});saveLocal();}}catch(e){entries=[];}
+    entries.sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:0;});
   }
-  async function persist(){
-    try{window.localStorage.setItem(STORAGE_KEY,JSON.stringify(entries));}
-    catch(e){showFormError("La sauvegarde a échoué.");}
+  function saveLocal(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(entries));}catch(e){}}
+  function loadSettings(){
+    try{var raw=localStorage.getItem(SETTINGS_KEY);if(raw){var s=JSON.parse(raw);thresholds.low=s.low||70;thresholds.normalHi=s.normalHi||140;thresholds.elevatedHi=s.elevatedHi||180;}}catch(e){}
+    ghToken=localStorage.getItem(TOKEN_KEY)||'';
+  }
+  function saveSettings(){localStorage.setItem(SETTINGS_KEY,JSON.stringify(thresholds));}
+
+  // GITHUB SYNC
+  function ghHeaders(){return {'Authorization':'token '+ghToken,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};}
+  function ghUrl(){return 'https://api.github.com/repos/'+GITHUB_REPO+'/contents/'+GITHUB_FILE;}
+
+  function ghPull(callback){
+    if(!ghToken){if(callback)callback(false);return;}
+    fetch(ghUrl(),{headers:ghHeaders()}).then(function(r){
+      if(r.status===404){ghSha=null;if(callback)callback(true);return;}
+      if(!r.ok){if(callback)callback(false);return;}
+      return r.json();
+    }).then(function(data){
+      if(!data)return;
+      ghSha=data.sha;
+      var content=atob(data.content.replace(/\n/g,''));
+      var remote=JSON.parse(content);
+      if(Array.isArray(remote)&&remote.length>0){
+        entries=remote;saveLocal();
+      }
+      if(callback)callback(true);
+    }).catch(function(){if(callback)callback(false);});
   }
 
-  // ── FORM ──
-  function clearForm(){
-    $('#f-date').value=new Date().toISOString().slice(0,10);
-    $('#f-dej').value='';$('#f-din').value='';$('#f-sou').value='';
-    $('#f-cou').value='';$('#f-dej1').value='';
-    editingId=null;
-    $('#form-title').textContent='Nouveau relevé';
-    $('#btn-cancel').style.display='none';
-    showFormError('');
+  function ghPush(callback){
+    if(!ghToken){if(callback)callback(false);return;}
+    var content=btoa(unescape(encodeURIComponent(JSON.stringify(entries,null,2))));
+    var body={message:'Mise \u00e0 jour glyc\u00e9mie '+new Date().toISOString().slice(0,10),content:content};
+    if(ghSha)body.sha=ghSha;
+    fetch(ghUrl(),{method:'PUT',headers:ghHeaders(),body:JSON.stringify(body)}).then(function(r){
+      if(!r.ok){if(callback)callback(false);return r.text();}
+      return r.json();
+    }).then(function(data){
+      if(data&&data.content)ghSha=data.content.sha;
+      if(callback)callback(true);
+    }).catch(function(){if(callback)callback(false);});
   }
-  function showFormError(msg){const el=$('#form-error');el.textContent=msg;el.style.display=msg?'block':'none';}
-  function readForm(){
-    showFormError('');
-    const date=$('#f-date').value;
-    if(!date){showFormError('Merci de renseigner la date du jour J.');return null;}
-    const vals={dejJ:$('#f-dej').value,dinJ:$('#f-din').value,souJ:$('#f-sou').value,couJ:$('#f-cou').value,dej1:$('#f-dej1').value};
-    const parsed={};
-    for(const k of fields){
-      if(vals[k]===''){parsed[k]=null;continue;}
-      const n=parseInt(vals[k],10);
-      if(Number.isNaN(n)){showFormError("Merci d'encoder des nombres entiers valides.");return null;}
-      parsed[k]=n;
+
+  function persist(){
+    saveLocal();
+    if(ghToken){
+      renderSyncStatus('Synchronisation...');
+      ghPush(function(ok){renderSyncStatus(ok?'Synchronis\u00e9 \u2714':'Erreur sync \u2716');});
     }
-    return {date,...parsed};
   }
-  async function saveEntry(){
-    const data=readForm();if(!data)return;
-    if(editingId){entries=entries.map(e=>e.id===editingId?{...e,...data}:e);}
-    else{entries.push({id:'e'+Date.now(),...data});}
-    entries.sort((a,b)=>a.date.localeCompare(b.date));
-    await persist();clearForm();renderAll();
+
+  function renderSyncStatus(msg){
+    var slot=qs('#sync-status-slot');
+    if(!ghToken){slot.innerHTML='';return;}
+    if(!msg)msg='Connect\u00e9 \u00e0 GitHub';
+    slot.innerHTML='<div class="sync-bar"><span class="status"><span class="dot-pulse"></span></span>'+msg+'</div>';
+  }
+
+  // FORM
+  function clearForm(){
+    qs('#f-date').value=new Date().toISOString().slice(0,10);
+    qs('#f-dej').value='';qs('#f-din').value='';qs('#f-sou').value='';
+    qs('#f-cou').value='';qs('#f-dej1').value='';qs('#f-comment').value='';
+    editingId=null;qs('#form-title').textContent='Nouveau relev\u00e9';
+    qs('#btn-cancel').style.display='none';showFormError('');
+  }
+  function showFormError(msg){var el=qs('#form-error');el.textContent=msg;el.style.display=msg?'block':'none';}
+  function readForm(){
+    showFormError('');var date=qs('#f-date').value;
+    if(!date){showFormError('Merci de renseigner la date du jour J.');return null;}
+    var vals={dejJ:qs('#f-dej').value,dinJ:qs('#f-din').value,souJ:qs('#f-sou').value,couJ:qs('#f-cou').value,dej1:qs('#f-dej1').value};
+    var parsed={};
+    for(var i=0;i<fields.length;i++){var k=fields[i];if(vals[k]===''){parsed[k]=null;continue;}var n=parseInt(vals[k],10);if(isNaN(n)){showFormError("Merci d'encoder des nombres entiers valides.");return null;}parsed[k]=n;}
+    parsed.date=date;parsed.comment=qs('#f-comment').value.trim();return parsed;
+  }
+  function saveEntry(){
+    var data=readForm();if(!data)return;
+    if(editingId){entries=entries.map(function(e){return e.id===editingId?Object.assign({},e,data):e;});}
+    else{data.id='e'+Date.now();entries.push(data);}
+    entries.sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:0;});
+    persist();clearForm();renderAll();
   }
   function editEntry(id){
-    const e=entries.find(x=>x.id===id);if(!e)return;
-    editingId=id;
-    $('#f-date').value=e.date;
-    $('#f-dej').value=e.dejJ??'';$('#f-din').value=e.dinJ??'';
-    $('#f-sou').value=e.souJ??'';$('#f-cou').value=e.couJ??'';
-    $('#f-dej1').value=e.dej1??'';
-    $('#form-title').textContent='Modifier le relevé du '+fmtDate(e.date);
-    $('#btn-cancel').style.display='inline-block';
-    // Switch to saisie tab
-    $$('.tab').forEach(x=>x.classList.remove('active'));
-    $$('.page').forEach(x=>x.classList.remove('active'));
-    $$('.tab')[1].classList.add('active');
-    $('#page-saisie').classList.add('active');
+    var e=entries.find(function(x){return x.id===id;});if(!e)return;
+    editingId=id;qs('#f-date').value=e.date;
+    qs('#f-dej').value=e.dejJ!=null?e.dejJ:'';qs('#f-din').value=e.dinJ!=null?e.dinJ:'';
+    qs('#f-sou').value=e.souJ!=null?e.souJ:'';qs('#f-cou').value=e.couJ!=null?e.couJ:'';
+    qs('#f-dej1').value=e.dej1!=null?e.dej1:'';qs('#f-comment').value=e.comment||'';
+    qs('#form-title').textContent='Modifier le relev\u00e9 du '+fmtDate(e.date);
+    qs('#btn-cancel').style.display='inline-block';
+    qsa('.tab').forEach(function(x){x.classList.remove('active');});
+    qsa('.page').forEach(function(x){x.classList.remove('active');});
+    qsa('.tab')[1].classList.add('active');qs('#page-saisie').classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
   }
   function askDelete(id){pendingDeleteId=id;renderReport();}
   function cancelDelete(){pendingDeleteId=null;renderReport();}
-  async function confirmDelete(id){
-    entries=entries.filter(e=>e.id!==id);pendingDeleteId=null;
-    await persist();renderAll();
-  }
+  function confirmDelete(id){entries=entries.filter(function(e){return e.id!==id;});pendingDeleteId=null;persist();renderAll();}
 
-  // ── DASHBOARD ──
-  function renderDashboard(){
-    renderBanner();renderKPIs();renderDroplets();renderMainChart();renderMealBars();renderTrendChart();
-  }
+  // DASHBOARD
+  function renderDashboard(){renderSyncStatus();renderBanner();renderKPIs();renderDroplets();renderMainChart();renderMealBars();renderTrendChart();}
   function renderBanner(){
-    const slot=$('#banner-slot');
-    if(entries.length===0){slot.innerHTML='<div class="banner ok">Bienvenue ! Allez dans Saisie pour encoder votre premier relevé.</div>';return;}
-    const last=entries[entries.length-1];
-    const lastDate=new Date(last.date+'T00:00:00');
-    const dueDate=new Date(lastDate);dueDate.setDate(dueDate.getDate()+7);
-    const today=new Date();today.setHours(0,0,0,0);
-    if(today>=dueDate){
-      slot.innerHTML='<div class="banner">Relevé en attente — dernier encodage le '+fmtDate(last.date)+'.</div>';
-    } else {slot.innerHTML='';}
+    var slot=qs('#banner-slot');
+    if(entries.length===0){slot.innerHTML='<div class="banner ok">Bienvenue ! Allez dans Saisie pour encoder votre premier relev\u00e9.</div>';return;}
+    var last=entries[entries.length-1];var lastDate=new Date(last.date+'T00:00:00');
+    var dueDate=new Date(lastDate);dueDate.setDate(dueDate.getDate()+7);var today=new Date();today.setHours(0,0,0,0);
+    if(today>=dueDate){slot.innerHTML='<div class="banner">Relev\u00e9 en attente \u2014 dernier encodage le '+fmtDate(last.date)+'.</div>';}
+    else{slot.innerHTML='';}
   }
   function renderKPIs(){
-    if(entries.length===0){$('#kpi-grid').innerHTML='';return;}
-    const allVals=entries.flatMap(e=>fields.map(k=>e[k]).filter(v=>v!=null));
-    const globalAvg=avg(allVals);
-    const globalMin=minV(allVals);
-    const globalMax=maxV(allVals);
-
-    const last4=entries.slice(-4);
-    const prev4=entries.slice(-8,-4);
-    const avg4=avg(last4.flatMap(e=>fields.map(k=>e[k]).filter(v=>v!=null)));
-    const avgP4=avg(prev4.flatMap(e=>fields.map(k=>e[k]).filter(v=>v!=null)));
-    let trendHtml='';
-    if(avg4!=null && avgP4!=null){
-      const diff=avg4-avgP4;
-      if(diff>2) trendHtml='<div class="kpi-sub trend-up">↑ +'+diff+' vs précéd.</div>';
-      else if(diff<-2) trendHtml='<div class="kpi-sub trend-down">↓ '+diff+' vs précéd.</div>';
-      else trendHtml='<div class="kpi-sub trend-stable">→ stable</div>';
-    }
-
-    $('#kpi-grid').innerHTML=
-      '<div class="kpi"><div class="kpi-val">'+globalAvg+'</div><div class="kpi-label">Moyenne globale</div><div class="kpi-sub">mg/dl</div></div>'+
-      '<div class="kpi"><div class="kpi-val">'+(avg4??'—')+'</div><div class="kpi-label">Moy. 4 dernières sem.</div>'+trendHtml+'</div>'+
-      '<div class="kpi"><div class="kpi-val" style="color:var(--normal)">'+globalMin+'</div><div class="kpi-label">Minimum</div><div class="kpi-sub">mg/dl</div></div>'+
-      '<div class="kpi"><div class="kpi-val" style="color:'+(globalMax>140?'var(--high)':'var(--elevated)')+'">'+globalMax+'</div><div class="kpi-label">Maximum</div><div class="kpi-sub">mg/dl</div></div>';
+    if(entries.length===0){qs('#kpi-grid').innerHTML='';return;}
+    var allV=allValsOf(entries);var gAvg=calcAvg(allV);var gMin=calcMin(allV);var gMax=calcMax(allV);
+    var last4=entries.slice(-4);var prev4=entries.slice(-8,-4);
+    var avg4=calcAvg(allValsOf(last4));var avgP4=calcAvg(allValsOf(prev4));
+    var tH='';if(avg4!=null&&avgP4!=null){var d=avg4-avgP4;
+      if(d>2)tH='<div class="kpi-sub trend-up">\u2191 +'+d+' vs pr\u00e9c\u00e9d.</div>';
+      else if(d<-2)tH='<div class="kpi-sub trend-down">\u2193 '+d+' vs pr\u00e9c\u00e9d.</div>';
+      else tH='<div class="kpi-sub trend-stable">\u2192 stable</div>';}
+    qs('#kpi-grid').innerHTML=
+      '<div class="kpi"><div class="kpi-val">'+gAvg+'</div><div class="kpi-label">Moyenne globale</div><div class="kpi-sub">mg/dl</div></div>'+
+      '<div class="kpi"><div class="kpi-val">'+(avg4!=null?avg4:'\u2014')+'</div><div class="kpi-label">Moy. 4 dern. sem.</div>'+tH+'</div>'+
+      '<div class="kpi"><div class="kpi-val" style="color:var(--normal)">'+gMin+'</div><div class="kpi-label">Minimum</div><div class="kpi-sub">mg/dl</div></div>'+
+      '<div class="kpi"><div class="kpi-val" style="color:'+(gMax>thresholds.normalHi?'var(--high)':'var(--elevated)')+'">'+gMax+'</div><div class="kpi-label">Maximum</div><div class="kpi-sub">mg/dl</div></div>';
   }
   function renderDroplets(){
-    const slot=$('#droplets-slot');
-    if(entries.length===0){slot.innerHTML='<div class="empty">Pas encore de relevé.</div>';return;}
-    const last=entries[entries.length-1];
-    let html='<div class="droplets">';
-    for(const k of fields){
-      const v=last[k];const info=rangeInfo(v);
-      html+='<div class="droplet-item">'+dropletSvg(info.color)+
-        '<div class="droplet-value" style="color:'+info.color+'">'+(v??'—')+'</div>'+
-        '<div class="droplet-label">'+labels[k]+'</div></div>';
-    }
-    html+='</div><div class="legend">'+
-      '<span><span class="dot" style="background:var(--low)"></span>bas</span>'+
-      '<span><span class="dot" style="background:var(--normal)"></span>normal</span>'+
-      '<span><span class="dot" style="background:var(--elevated)"></span>élevé</span>'+
-      '<span><span class="dot" style="background:var(--high)"></span>haut</span></div>';
+    var slot=qs('#droplets-slot');if(entries.length===0){slot.innerHTML='<div class="empty">Pas encore de relev\u00e9.</div>';return;}
+    var last=entries[entries.length-1];var html='<div class="droplets">';
+    for(var i=0;i<fields.length;i++){var k=fields[i];var v=last[k];var info=rangeInfo(v);
+      html+='<div class="droplet-item">'+dropletSvg(info.color)+'<div class="droplet-value" style="color:'+info.color+'">'+(v!=null?v:'\u2014')+'</div><div class="droplet-label">'+labels[k]+'</div></div>';}
+    html+='</div><div class="legend"><span><span class="dot" style="background:var(--low)"></span>bas &lt;'+thresholds.low+'</span><span><span class="dot" style="background:var(--normal)"></span>normal '+thresholds.low+'\u2013'+thresholds.normalHi+'</span><span><span class="dot" style="background:var(--elevated)"></span>\u00e9lev\u00e9 '+(thresholds.normalHi+1)+'\u2013'+thresholds.elevatedHi+'</span><span><span class="dot" style="background:var(--high)"></span>haut &gt;'+thresholds.elevatedHi+'</span></div>';
     slot.innerHTML=html;
   }
   function renderMainChart(){
-    const ctx=$('#chart-main');if(!ctx)return;
-    const sorted=[...entries].sort((a,b)=>a.date.localeCompare(b.date));
-    const labelsX=sorted.map(e=>fmtDate(e.date));
-    const datasets=fields.map(k=>({
-      label:labels[k],data:sorted.map(e=>e[k]),
-      borderColor:colors[k],backgroundColor:colors[k],tension:.3,spanGaps:true,pointRadius:2,borderWidth:2
-    }));
+    var ctx=qs('#chart-main');if(!ctx)return;
+    var sorted=entries.slice().sort(function(a,b){return a.date<b.date?-1:1;});
+    var labelsX=sorted.map(function(e){return fmtDate(e.date);});
+    var datasets=fields.map(function(k){return{label:labels[k],data:sorted.map(function(e){return e[k];}),borderColor:mealColors[k],backgroundColor:mealColors[k],tension:.3,spanGaps:true,pointRadius:1.5,borderWidth:1.5};});
+    // Moving average 4 weeks
+    var maData=[];for(var i=0;i<sorted.length;i++){
+      var start=Math.max(0,i-3);var slice=sorted.slice(start,i+1);
+      var vals=allValsOf(slice);maData.push(calcAvg(vals));}
+    datasets.push({label:'Moy. mobile 4 sem.',data:maData,borderColor:'#222',backgroundColor:'transparent',borderWidth:2.5,borderDash:[6,3],tension:.4,spanGaps:true,pointRadius:0});
     if(chartMain)chartMain.destroy();
-    chartMain=new Chart(ctx,{
-      type:'line',data:{labels:labelsX,datasets},
-      options:{responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{position:'bottom',labels:{font:{family:"'Inter',sans-serif",size:11}}}},
-        scales:{y:{title:{display:true,text:'mg/dl'}},x:{ticks:{font:{size:9},maxRotation:45}}}
-      }
-    });
+    chartMain=new Chart(ctx,{type:'line',data:{labels:labelsX,datasets:datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:"'Inter',sans-serif",size:10},usePointStyle:true}}},scales:{y:{title:{display:true,text:'mg/dl'}},x:{ticks:{font:{size:8},maxRotation:45}}}}});
   }
   function renderMealBars(){
-    const slot=$('#meal-bars-slot');if(!slot)return;
-    const avgs={};let maxA=0;
-    for(const k of fields){
-      const a=avg(entries.map(e=>e[k]));avgs[k]=a;if(a&&a>maxA)maxA=a;
-    }
-    let html='<div class="meal-bars">';
-    for(const k of fields){
-      const a=avgs[k]??0;
-      const pct=maxA?Math.round((a/maxA)*100):0;
-      const info=rangeInfo(a);
-      html+='<div class="meal-bar-item">'+
-        '<div class="meal-bar-val" style="color:'+info.color+'">'+a+'</div>'+
-        '<div class="meal-bar" style="height:'+pct+'%;background:'+colors[k]+';opacity:.8;"></div>'+
-        '<div class="meal-bar-name">'+labelsShort[k]+'</div></div>';
-    }
-    html+='</div>';
-    slot.innerHTML=html;
+    var slot=qs('#meal-bars-slot');if(!slot)return;var avgs={};var maxA=0;
+    for(var i=0;i<fields.length;i++){var k=fields[i];var a=calcAvg(entries.map(function(e){return e[k];}));avgs[k]=a;if(a&&a>maxA)maxA=a;}
+    var html='<div class="meal-bars">';
+    for(var i=0;i<fields.length;i++){var k=fields[i];var a=avgs[k]||0;var pct=maxA?Math.round((a/maxA)*100):0;var info=rangeInfo(a);
+      html+='<div class="meal-bar-item"><div class="meal-bar-val" style="color:'+info.color+'">'+a+'</div><div class="meal-bar" style="height:'+pct+'%;background:'+mealColors[k]+';opacity:.8;"></div><div class="meal-bar-name">'+labelsShort[k]+'</div></div>';}
+    html+='</div>';slot.innerHTML=html;
   }
   function renderTrendChart(){
-    const ctx=$('#chart-trend');if(!ctx)return;
-    if(entries.length<5){return;}
-    const last8=entries.slice(-8);
-    const labelsX=last8.map(e=>fmtDate(e.date));
-    const allVals=last8.map(e=>{const vs=fields.map(k=>e[k]).filter(v=>v!=null);return vs.length?Math.round(vs.reduce((a,b)=>a+b,0)/vs.length):null;});
+    var ctx=qs('#chart-trend');if(!ctx||entries.length<5)return;
+    var last8=entries.slice(-8);var labelsX=last8.map(function(e){return fmtDate(e.date);});
+    var allVals=last8.map(function(e){var vs=[];fields.forEach(function(k){if(e[k]!=null)vs.push(e[k]);});return vs.length?Math.round(vs.reduce(function(a,b){return a+b;},0)/vs.length):null;});
     if(chartTrend)chartTrend.destroy();
-    chartTrend=new Chart(ctx,{
-      type:'bar',
-      data:{labels:labelsX,datasets:[{
-        label:'Moyenne du relevé',data:allVals,
-        backgroundColor:allVals.map(v=>v&&v>120?'rgba(180,70,61,.7)':v&&v>100?'rgba(201,138,44,.7)':'rgba(44,140,107,.7)'),
-        borderRadius:6
-      }]},
-      options:{responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{display:false}},
-        scales:{y:{beginAtZero:false,title:{display:true,text:'mg/dl'}},x:{ticks:{font:{size:9}}}}
-      }
-    });
+    chartTrend=new Chart(ctx,{type:'bar',data:{labels:labelsX,datasets:[{label:'Moyenne',data:allVals,backgroundColor:allVals.map(function(v){return v&&v>thresholds.normalHi?'rgba(180,70,61,.7)':v&&v>100?'rgba(201,138,44,.7)':'rgba(44,140,107,.7)';}),borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:false,title:{display:true,text:'mg/dl'}},x:{ticks:{font:{size:9}}}}}});
   }
 
-  // ── RAPPORT ──
-  function getFilteredEntries(){
-    let data=[...entries];
-    if(filterFrom)data=data.filter(e=>e.date>=filterFrom);
-    if(filterTo)data=data.filter(e=>e.date<=filterTo);
-    return data;
-  }
+  // RAPPORT
+  function getFiltered(){var d=entries.slice();if(filterFrom)d=d.filter(function(e){return e.date>=filterFrom;});if(filterTo)d=d.filter(function(e){return e.date<=filterTo;});return d;}
   function renderReport(){
-    const data=getFilteredEntries();
-    // Sort
-    data.sort((a,b)=>{
-      let va=sortCol==='date'?a.date:(a[sortCol]??-1);
-      let vb=sortCol==='date'?b.date:(b[sortCol]??-1);
-      if(va<vb)return sortDir==='asc'?-1:1;
-      if(va>vb)return sortDir==='asc'?1:-1;
-      return 0;
-    });
-    // Update sort arrows
-    $$('#report-table th[data-col]').forEach(th=>{
-      const arrow=th.querySelector('.sort-arrow');
-      if(th.dataset.col===sortCol)arrow.textContent=sortDir==='asc'?'▲':'▼';
-      else arrow.textContent='';
-    });
-    // Stats
-    const statsSlot=$('#report-stats');
-    if(data.length){
-      const allV=data.flatMap(e=>fields.map(k=>e[k]).filter(v=>v!=null));
-      statsSlot.innerHTML='<span><b>'+data.length+'</b> relevés</span>'+
-        '<span>Moy: <b>'+avg(allV)+'</b></span>'+
-        '<span>Min: <b>'+minV(allV)+'</b></span>'+
-        '<span>Max: <b>'+maxV(allV)+'</b></span>';
-    }else{statsSlot.innerHTML='';}
-    // Print range
-    $('#print-range').textContent=filterFrom||filterTo?
-      'Période : '+(filterFrom?fmtDate(filterFrom):'début')+' — '+(filterTo?fmtDate(filterTo):'fin'):
-      'Toutes les données';
-    // Table
-    const body=$('#report-body');
-    const emptyMsg=$('#empty-msg');
-    if(data.length===0){body.innerHTML='';emptyMsg.style.display='block';return;}
-    emptyMsg.style.display='none';
-    body.innerHTML=data.map(e=>{
-      const cells=fields.map(k=>{
-        const v=e[k];const info=rangeInfo(v);
-        return '<td class="num" style="color:'+info.color+'">'+(v??'—')+'</td>';
-      }).join('');
-      const actionsHtml=pendingDeleteId===e.id
-        ?'<span style="color:var(--high);font-weight:600;margin-right:6px;">Confirmer ?</span>'+
-         '<button class="del" onclick="glycApp.confirmDel(''+e.id+'')">Oui</button>'+
-         '<button onclick="glycApp.cancelDel()">Non</button>'
-        :'<button onclick="glycApp.edit(''+e.id+'')">Modifier</button>'+
-         '<button class="del" onclick="glycApp.askDel(''+e.id+'')">Supprimer</button>';
-      return '<tr><td>'+fmtDate(e.date)+'</td>'+cells+'<td class="actions">'+actionsHtml+'</td></tr>';
-    }).join('');
+    var data=getFiltered();
+    data.sort(function(a,b){var va=sortCol==='date'?a.date:(a[sortCol]!=null?a[sortCol]:-1);var vb=sortCol==='date'?b.date:(b[sortCol]!=null?b[sortCol]:-1);if(va<vb)return sortDir==='asc'?-1:1;if(va>vb)return sortDir==='asc'?1:-1;return 0;});
+    qsa('#report-table th[data-col]').forEach(function(th){var ar=th.querySelector('.sort-arrow');ar.textContent=th.dataset.col===sortCol?(sortDir==='asc'?'\u25b2':'\u25bc'):'';});
+    var ss=qs('#report-stats');if(data.length){var aV=allValsOf(data);ss.innerHTML='<span><b>'+data.length+'</b> relev\u00e9s</span><span>Moy: <b>'+calcAvg(aV)+'</b></span><span>Min: <b>'+calcMin(aV)+'</b></span><span>Max: <b>'+calcMax(aV)+'</b></span>';}else{ss.innerHTML='';}
+    qs('#print-range').textContent=filterFrom||filterTo?'P\u00e9riode : '+(filterFrom?fmtDate(filterFrom):'d\u00e9but')+' \u2014 '+(filterTo?fmtDate(filterTo):'fin'):'Toutes les donn\u00e9es';
+    var body=qs('#report-body');var em=qs('#empty-msg');
+    if(data.length===0){body.innerHTML='';em.style.display='block';return;}em.style.display='none';
+    body.innerHTML=data.map(function(e){
+      var cells=fields.map(function(k){var v=e[k];var info=rangeInfo(v);return'<td class="num" style="color:'+info.color+'">'+(v!=null?v:'\u2014')+'</td>';}).join('');
+      var cmt=e.comment?'<td class="comment" title="'+e.comment.replace(/"/g,'&quot;')+'">'+e.comment+'</td>':'<td class="comment"></td>';
+      var act;if(pendingDeleteId===e.id){act='<span style="color:var(--high);font-weight:600;margin-right:6px;">Confirmer ?</span><button class="del" onclick="glycApp.confirmDel(\''+e.id+'\')">Oui</button><button onclick="glycApp.cancelDel()">Non</button>';}
+      else{act='<button onclick="glycApp.edit(\''+e.id+'\')">Modifier</button><button class="del" onclick="glycApp.askDel(\''+e.id+'\')">Supprimer</button>';}
+      return'<tr><td>'+fmtDate(e.date)+'</td>'+cells+cmt+'<td class="actions">'+act+'</td></tr>';}).join('');
   }
+  qsa('#report-table th[data-col]').forEach(function(th){th.addEventListener('click',function(){var col=th.dataset.col;if(sortCol===col)sortDir=sortDir==='asc'?'desc':'asc';else{sortCol=col;sortDir='desc';}renderReport();});});
 
-  // Sort click
-  $$('#report-table th[data-col]').forEach(th=>{
-    th.addEventListener('click',()=>{
-      const col=th.dataset.col;
-      if(sortCol===col)sortDir=sortDir==='asc'?'desc':'asc';
-      else{sortCol=col;sortDir=col==='date'?'desc':'desc';}
-      renderReport();
-    });
-  });
-
-  // Export
-  function toCSV(data){
-    const header=['Date','Déjeuner J','Dîner J','Souper J','Coucher J','Déjeuner J+1'];
-    const rows=data.sort((a,b)=>a.date.localeCompare(b.date)).map(e=>
-      [e.date,e.dejJ??'',e.dinJ??'',e.souJ??'',e.couJ??'',e.dej1??'']
-    );
-    return [header,...rows].map(r=>r.join(';')).join('\n');
-  }
+  // EXPORT
   function exportCSV(){
-    const csv=toCSV(getFilteredEntries());
-    const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
-    const url=URL.createObjectURL(blob);
-    const a=document.createElement('a');a.href=url;a.download='glycemie.csv';a.click();URL.revokeObjectURL(url);
+    var data=getFiltered().sort(function(a,b){return a.date<b.date?-1:1;});
+    var h='Date;D\u00e9jeuner J;D\u00eener J;Souper J;Coucher J;D\u00e9jeuner J+1;Commentaire';
+    var rows=data.map(function(e){return[e.date,e.dejJ!=null?e.dejJ:'',e.dinJ!=null?e.dinJ:'',e.souJ!=null?e.souJ:'',e.couJ!=null?e.couJ:'',e.dej1!=null?e.dej1:'',e.comment||''].join(';');});
+    var blob=new Blob(['\ufeff'+h+'\n'+rows.join('\n')],{type:'text/csv;charset=utf-8;'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='glycemie.csv';a.click();
   }
   function exportXLSX(){
-    const data=getFilteredEntries().sort((a,b)=>a.date.localeCompare(b.date));
-    const header=['Date','Déjeuner J','Dîner J','Souper J','Coucher J','Déjeuner J+1'];
-    const rows=data.map(e=>[e.date,e.dejJ??'',e.dinJ??'',e.souJ??'',e.couJ??'',e.dej1??'']);
-    const ws=XLSX.utils.aoa_to_sheet([header,...rows]);
-    const wb=XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb,ws,'Glycémie');
-    XLSX.writeFile(wb,'glycemie.xlsx');
+    var data=getFiltered().sort(function(a,b){return a.date<b.date?-1:1;});
+    var header=['Date','D\u00e9jeuner J','D\u00eener J','Souper J','Coucher J','D\u00e9jeuner J+1','Commentaire'];
+    var rows=data.map(function(e){return[e.date,e.dejJ!=null?e.dejJ:'',e.dinJ!=null?e.dinJ:'',e.souJ!=null?e.souJ:'',e.couJ!=null?e.couJ:'',e.dej1!=null?e.dej1:'',e.comment||''];});
+    var ws=XLSX.utils.aoa_to_sheet([header].concat(rows));var wb=XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb,ws,'Glyc\u00e9mie');XLSX.writeFile(wb,'glycemie.xlsx');
   }
-  function printReport(){
-    // Mark rapport page as print target
-    $$('.page').forEach(p=>p.classList.remove('print-target'));
-    $('#page-rapport').classList.add('print-target');
-    window.print();
+  function printReport(){qsa('.page').forEach(function(p){p.classList.remove('print-target');});qs('#page-rapport').classList.add('print-target');window.print();}
+
+  // SETTINGS
+  function renderSettings(){
+    qs('#s-low').value=thresholds.low;qs('#s-nhi').value=thresholds.normalHi;qs('#s-ehi').value=thresholds.elevatedHi;
+    qs('#s-token').value=ghToken?'\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022':'';
+    var info=qs('#sync-info');
+    if(ghToken)info.innerHTML='<span style="color:var(--normal);">\u2714 Connect\u00e9 au d\u00e9p\u00f4t '+GITHUB_REPO+'</span>';
+    else info.innerHTML='Non connect\u00e9. Vos donn\u00e9es sont sauvegard\u00e9es localement sur cet appareil.';
   }
 
-  // ── RENDER ALL ──
+  // INIT & EVENTS
   function renderAll(){renderDashboard();renderReport();}
 
   window.glycApp={edit:editEntry,askDel:askDelete,cancelDel:cancelDelete,confirmDel:confirmDelete};
 
-  $('#btn-save').addEventListener('click',saveEntry);
-  $('#btn-cancel').addEventListener('click',clearForm);
-  $('#btn-csv').addEventListener('click',exportCSV);
-  $('#btn-xlsx').addEventListener('click',exportXLSX);
-  $('#btn-print').addEventListener('click',printReport);
-  $('#btn-filter').addEventListener('click',()=>{
-    filterFrom=$('#r-from').value;filterTo=$('#r-to').value;renderReport();
+  qs('#btn-save').addEventListener('click',saveEntry);
+  qs('#btn-cancel').addEventListener('click',clearForm);
+  qs('#btn-csv').addEventListener('click',exportCSV);
+  qs('#btn-xlsx').addEventListener('click',exportXLSX);
+  qs('#btn-print').addEventListener('click',printReport);
+  qs('#btn-filter').addEventListener('click',function(){filterFrom=qs('#r-from').value;filterTo=qs('#r-to').value;renderReport();});
+  qs('#btn-reset-filter').addEventListener('click',function(){filterFrom='';filterTo='';qs('#r-from').value='';qs('#r-to').value='';renderReport();});
+  qs('#btn-save-thresholds').addEventListener('click',function(){
+    thresholds.low=parseInt(qs('#s-low').value,10)||70;
+    thresholds.normalHi=parseInt(qs('#s-nhi').value,10)||140;
+    thresholds.elevatedHi=parseInt(qs('#s-ehi').value,10)||180;
+    saveSettings();renderAll();renderSettings();
   });
-  $('#btn-reset-filter').addEventListener('click',()=>{
-    filterFrom='';filterTo='';$('#r-from').value='';$('#r-to').value='';renderReport();
+  qs('#btn-connect').addEventListener('click',function(){
+    var val=qs('#s-token').value.trim();
+    if(!val||val.indexOf('\u2022')===0)return;
+    ghToken=val;localStorage.setItem(TOKEN_KEY,ghToken);
+    renderSyncStatus('Connexion...');
+    ghPull(function(ok){
+      if(ok){renderSyncStatus('Synchronis\u00e9 \u2714');renderAll();renderSettings();}
+      else{renderSyncStatus('Erreur de connexion \u2716');ghToken='';localStorage.removeItem(TOKEN_KEY);renderSettings();}
+    });
   });
 
-  (async function init(){
-    clearForm();
-    await loadEntries();
-    renderAll();
-  })();
+  loadSettings();clearForm();loadLocal();
+  if(ghToken){renderSyncStatus('Chargement...');ghPull(function(){renderAll();});}
+  else{renderAll();}
 })();
 </script>
