@@ -445,32 +445,96 @@ td.comment{font-size:12px;color:var(--ink-soft);max-width:120px;overflow:hidden;
     slot.innerHTML=html;
   }
   function renderMainChart(){
-    var ctx=qs('#chart-main');if(!ctx||typeof Chart==='undefined')return;
+    var el=qs('#chart-main');if(!el||typeof Chart==='undefined')return;
+    try{
+    var ctx=el.getContext('2d');
     var sorted=entries.slice().sort(function(a,b){return a.date<b.date?-1:1;});
     var labelsX=sorted.map(function(e){return fmtDate(e.date);});
     var datasets=fields.map(function(k){return{label:labels[k],data:sorted.map(function(e){return e[k];}),borderColor:mealColors[k],backgroundColor:mealColors[k],tension:.3,spanGaps:true,pointRadius:1.5,borderWidth:1.5};});
-    // Moving average 4 weeks
     var maData=[];for(var i=0;i<sorted.length;i++){
       var start=Math.max(0,i-3);var slice=sorted.slice(start,i+1);
       var vals=allValsOf(slice);maData.push(calcAvg(vals));}
     datasets.push({label:'Moy. mobile 4 sem.',data:maData,borderColor:'#222',backgroundColor:'transparent',borderWidth:2.5,borderDash:[6,3],tension:.4,spanGaps:true,pointRadius:0});
     if(chartMain)chartMain.destroy();
     chartMain=new Chart(ctx,{type:'line',data:{labels:labelsX,datasets:datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:"'Inter',sans-serif",size:10},usePointStyle:true}}},scales:{y:{title:{display:true,text:'mg/dl'}},x:{ticks:{font:{size:8},maxRotation:45}}}}});
+    }catch(e){console.error('Chart main error:',e);}
+  }
+  function thresholdColor(val){
+    if(val===null||val===undefined)return '#aaa';
+    if(val<thresholds.low)return '#3F6E93';
+    if(val<=thresholds.normalHi)return '#2C8C6B';
+    if(val<=thresholds.elevatedHi)return '#C98A2C';
+    return '#B4463D';
+  }
+  function thresholdBg(val){
+    if(val===null||val===undefined)return 'rgba(170,170,170,.15)';
+    if(val<thresholds.low)return 'rgba(63,110,147,.12)';
+    if(val<=thresholds.normalHi)return 'rgba(44,140,107,.12)';
+    if(val<=thresholds.elevatedHi)return 'rgba(201,138,44,.12)';
+    return 'rgba(180,70,61,.12)';
+  }
+  function thresholdLabel(val){
+    if(val===null||val===undefined)return '';
+    if(val<thresholds.low)return 'Bas';
+    if(val<=thresholds.normalHi)return 'Normal';
+    if(val<=thresholds.elevatedHi)return '\u00c9lev\u00e9';
+    return 'Haut';
   }
   function renderMealBars(){
-    var slot=qs('#meal-bars-slot');if(!slot)return;var avgs={};var maxA=0;
-    for(var i=0;i<fields.length;i++){var k=fields[i];var a=calcAvg(entries.map(function(e){return e[k];}));avgs[k]=a;if(a&&a>maxA)maxA=a;}
-    var html='<div class="meal-bars">';
-    for(var i=0;i<fields.length;i++){var k=fields[i];var a=avgs[k]||0;var pct=maxA?Math.round((a/maxA)*100):0;var info=rangeInfo(a);
-      html+='<div class="meal-bar-item"><div class="meal-bar-val" style="color:'+info.color+'">'+a+'</div><div class="meal-bar" style="height:'+pct+'%;background:'+mealColors[k]+';opacity:.8;"></div><div class="meal-bar-name">'+labelsShort[k]+'</div></div>';}
-    html+='</div>';slot.innerHTML=html;
+    var slot=qs('#meal-bars-slot');if(!slot||entries.length===0)return;
+    var avgs={};
+    for(var i=0;i<fields.length;i++){var k=fields[i];avgs[k]=calcAvg(entries.map(function(e){return e[k];}));}
+    // Scale: 0 to max threshold + 20%
+    var scaleMax=Math.max(thresholds.elevatedHi+20,200);
+    var html='<div style="position:relative;padding:0 8px;">';
+    // Background threshold zones
+    var zLow=Math.round((thresholds.low/scaleMax)*100);
+    var zNorm=Math.round((thresholds.normalHi/scaleMax)*100);
+    var zElev=Math.round((thresholds.elevatedHi/scaleMax)*100);
+    html+='<div style="position:relative;height:180px;display:flex;align-items:flex-end;gap:12px;justify-content:center;padding-bottom:30px;">';
+    // Zone backgrounds behind bars
+    html+='<div style="position:absolute;bottom:30px;left:0;right:0;height:'+zElev+'%;display:flex;flex-direction:column;">';
+    html+='<div style="flex:'+((100-zElev))+'%;"></div>';
+    html+='<div style="flex:'+((zElev-zNorm))+'%;background:rgba(201,138,44,.06);border-top:1px dashed rgba(201,138,44,.3);"></div>';
+    html+='<div style="flex:'+((zNorm-zLow))+'%;background:rgba(44,140,107,.06);border-top:1px dashed rgba(44,140,107,.3);"></div>';
+    html+='<div style="flex:'+(zLow)+'%;background:rgba(63,110,147,.06);border-top:1px dashed rgba(63,110,147,.3);"></div>';
+    html+='</div>';
+    // Scale labels on left
+    html+='<div style="position:absolute;bottom:30px;left:-2px;height:'+zElev+'%;display:flex;flex-direction:column;font-size:9px;color:var(--ink-soft);font-family:IBM Plex Mono,monospace;">';
+    html+='<div style="flex:'+((100-zElev))+'%;"></div>';
+    html+='<div style="flex:'+((zElev-zNorm))+'%;"><span style="position:relative;top:-6px;">'+thresholds.elevatedHi+'</span></div>';
+    html+='<div style="flex:'+((zNorm-zLow))+'%;"><span style="position:relative;top:-6px;">'+thresholds.normalHi+'</span></div>';
+    html+='<div style="flex:'+(zLow)+'%;"><span style="position:relative;top:-6px;">'+thresholds.low+'</span></div>';
+    html+='</div>';
+    // Bars
+    for(var i=0;i<fields.length;i++){
+      var k=fields[i];var a=avgs[k]||0;
+      var pct=Math.round((a/scaleMax)*100);
+      var col=thresholdColor(a);var bg=thresholdBg(a);var lbl=thresholdLabel(a);
+      html+='<div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;max-width:72px;z-index:2;">';
+      html+='<div style="font-family:IBM Plex Mono,monospace;font-size:15px;font-weight:700;color:'+col+';">'+a+'</div>';
+      html+='<div style="font-size:9px;font-weight:600;color:'+col+';text-transform:uppercase;letter-spacing:.04em;">'+lbl+'</div>';
+      html+='<div style="width:100%;height:'+pct+'%;background:linear-gradient(to top,'+col+','+col+'cc);border-radius:6px 6px 0 0;min-height:4px;"></div>';
+      html+='<div style="font-size:11px;color:var(--ink-soft);text-align:center;position:absolute;bottom:6px;">'+labelsShort[k]+'</div>';
+      html+='</div>';
+    }
+    html+='</div>';
+    // Labels row below
+    html+='<div style="display:flex;gap:12px;justify-content:center;padding:0 8px;">';
+    for(var i=0;i<fields.length;i++){html+='<div style="flex:1;max-width:72px;text-align:center;font-size:11px;color:var(--ink-soft);">'+labelsShort[fields[i]]+'</div>';}
+    html+='</div>';
+    html+='</div>';
+    slot.innerHTML=html;
   }
   function renderTrendChart(){
-    var ctx=qs('#chart-trend');if(!ctx||entries.length<5||typeof Chart==='undefined')return;
+    var el=qs('#chart-trend');if(!el||entries.length<5||typeof Chart==='undefined')return;
+    try{
+    var ctx=el.getContext('2d');
     var last8=entries.slice(-8);var labelsX=last8.map(function(e){return fmtDate(e.date);});
     var allVals=last8.map(function(e){var vs=[];fields.forEach(function(k){if(e[k]!=null)vs.push(e[k]);});return vs.length?Math.round(vs.reduce(function(a,b){return a+b;},0)/vs.length):null;});
     if(chartTrend)chartTrend.destroy();
     chartTrend=new Chart(ctx,{type:'bar',data:{labels:labelsX,datasets:[{label:'Moyenne',data:allVals,backgroundColor:allVals.map(function(v){return v&&v>thresholds.normalHi?'rgba(180,70,61,.7)':v&&v>100?'rgba(201,138,44,.7)':'rgba(44,140,107,.7)';}),borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:false,title:{display:true,text:'mg/dl'}},x:{ticks:{font:{size:9}}}}}});
+    }catch(e){console.error('Chart trend error:',e);}
   }
 
   // RAPPORT
