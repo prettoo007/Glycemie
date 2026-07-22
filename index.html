@@ -538,13 +538,44 @@ td.comment{font-size:12px;color:var(--ink-soft);max-width:120px;overflow:hidden;
   });
   qs('#btn-connect').addEventListener('click',function(){
     var val=qs('#s-token').value.trim();
-    if(!val||val.indexOf('\u2022')===0)return;
+    if(!val||val.indexOf('\u2022')===0){qs('#sync-info').innerHTML='<span style="color:var(--high);">Veuillez coller votre token GitHub.</span>';return;}
     ghToken=val;localStorage.setItem(TOKEN_KEY,ghToken);
-    renderSyncStatus('Connexion...');
-    ghPull(function(ok){
-      if(ok){renderSyncStatus('Synchronis\u00e9 \u2714');renderAll();renderSettings();}
-      else{renderSyncStatus('Erreur de connexion \u2716');ghToken='';localStorage.removeItem(TOKEN_KEY);renderSettings();}
-    });
+    qs('#sync-info').innerHTML='<span style="color:var(--accent-dark);">Connexion en cours...</span>';
+    qs('#btn-connect').disabled=true;qs('#btn-connect').textContent='...';
+    try{
+      fetch(ghUrl(),{headers:ghHeaders()}).then(function(r){
+        if(r.status===404){ghSha=null;return{_empty:true};}
+        if(r.status===401||r.status===403){return{_authError:true,status:r.status};}
+        if(!r.ok){return{_error:true,status:r.status};}
+        return r.json();
+      }).then(function(data){
+        qs('#btn-connect').disabled=false;qs('#btn-connect').textContent='Connecter';
+        if(!data){qs('#sync-info').innerHTML='<span style="color:var(--high);">Pas de r\u00e9ponse du serveur.</span>';ghToken='';localStorage.removeItem(TOKEN_KEY);return;}
+        if(data._authError){qs('#sync-info').innerHTML='<span style="color:var(--high);">Token invalide ou droits insuffisants (erreur '+data.status+'). V\u00e9rifiez les permissions Contents read/write.</span>';ghToken='';localStorage.removeItem(TOKEN_KEY);return;}
+        if(data._error){qs('#sync-info').innerHTML='<span style="color:var(--high);">Erreur GitHub ('+data.status+')</span>';ghToken='';localStorage.removeItem(TOKEN_KEY);return;}
+        if(data._empty){
+          qs('#sync-info').innerHTML='<span style="color:var(--normal);">\u2714 Connect\u00e9 ! Premier envoi des donn\u00e9es...</span>';
+          ghPush(function(ok2){
+            if(ok2){qs('#sync-info').innerHTML='<span style="color:var(--normal);">\u2714 Connect\u00e9 et synchronis\u00e9 avec '+GITHUB_REPO+'</span>';renderSyncStatus('Synchronis\u00e9 \u2714');}
+            else{qs('#sync-info').innerHTML='<span style="color:var(--high);">\u2716 Erreur lors de l\'envoi initial.</span>';}
+          });
+          return;
+        }
+        ghSha=data.sha;
+        try{var content=atob(data.content.replace(/\n/g,''));var remote=JSON.parse(content);
+          if(Array.isArray(remote)&&remote.length>0){entries=remote;saveLocal();}
+        }catch(pe){}
+        qs('#sync-info').innerHTML='<span style="color:var(--normal);">\u2714 Connect\u00e9 et synchronis\u00e9 avec '+GITHUB_REPO+'</span>';
+        renderSyncStatus('Synchronis\u00e9 \u2714');renderAll();
+      }).catch(function(err){
+        qs('#btn-connect').disabled=false;qs('#btn-connect').textContent='Connecter';
+        qs('#sync-info').innerHTML='<span style="color:var(--high);">Erreur r\u00e9seau : '+err.message+'</span>';
+        ghToken='';localStorage.removeItem(TOKEN_KEY);
+      });
+    }catch(ex){
+      qs('#btn-connect').disabled=false;qs('#btn-connect').textContent='Connecter';
+      qs('#sync-info').innerHTML='<span style="color:var(--high);">Erreur : '+ex.message+'</span>';
+    }
   });
 
   loadSettings();clearForm();loadLocal();
